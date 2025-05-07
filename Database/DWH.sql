@@ -1,7 +1,6 @@
 CREATE DATABASE CoffeeShop_DWH;
 
 USE CoffeeShop_DWH;
-
 ---- DIMENSION TABLES
 
 --1. RECIPE DIMENSION TABLE
@@ -80,7 +79,7 @@ CREATE TABLE Dim_Date (
 );
 
 CREATE Table Dim_Customer (
-  customer_id INT,
+  customer_id INT PRIMARY KEY,
   cust_name VARCHAR(50)
 );
 
@@ -90,32 +89,30 @@ CREATE Table Dim_Customer (
 CREATE TABLE Fact_Item_Profit (
 	surrogate_id INT PRIMARY KEY IDENTITY(1,1),
 	item_id VARCHAR(10) FOREIGN KEY REFERENCES Item_Dim(item_id),
-	recipe_id VARCHAR(20) FOREIGN KEY REFERENCES Recipe_Dim(recipe_id),
-	ing_id VARCHAR(10) FOREIGN KEY REFERENCES Ingredient_Dim(ing_id),
+    ingredient_recipe_id VARCHAR(20) FOREIGN KEY REFERENCES IngredientRecipe_Dim(ingredient_recipe_id),
 	item_price DECIMAL(10,2),
 	recipe_cost DECIMAL(10,2),
 	profit DECIMAL(10,2)
 );
 
---2.INGREDIENTS USAGE FACT TABLE
+--2. INGREDIENTS USAGE FACT TABLE
 CREATE TABLE Fact_Ingredients_Usage (
     surrogate_id INT PRIMARY KEY IDENTITY(1,1),
     ingredient_recipe_id VARCHAR(20) FOREIGN KEY REFERENCES IngredientRecipe_Dim(ingredient_recipe_id),
     order_id VARCHAR(10), -- degenerate dim
     item_id VARCHAR(10) FOREIGN KEY REFERENCES Item_Dim(item_id),
-    date_id BIGINT FOREIGN KEY REFERENCES Date_Dim(date_id),
+    date_id BIGINT FOREIGN KEY REFERENCES Dim_Date(Date_ID),
     item_quantity INT,
     ing_quantity_used INT
 );
 
-
---3.SALES FACT TABLE
+--3. SALES FACT TABLE
 CREATE TABLE Fact_Sales (
 	surrogate_id INT PRIMARY KEY IDENTITY(1,1),
 	order_id VARCHAR(10),
 	item_id VARCHAR(10) FOREIGN KEY REFERENCES Item_Dim(item_id),
-	date_id BIGINT FOREIGN KEY REFERENCES Date_Dim(date_id),
-	cust_id INT FOREIGN KEY REFERENCES Dim_Customer(cust_id),
+	date_id BIGINT FOREIGN KEY REFERENCES Dim_Date(Date_ID), 
+	cust_id INT FOREIGN KEY REFERENCES Dim_Customer(customer_id),
 	order_type_id VARCHAR(10) FOREIGN KEY REFERENCES Order_Type_Dim(order_type_id),
 	item_price DECIMAL(10,2),
 	item_quantity INT,
@@ -127,8 +124,7 @@ CREATE TABLE Fact_Staff_Cost (
 	surrogate_id INT PRIMARY KEY IDENTITY(1,1),
 	staff_id VARCHAR(10) FOREIGN KEY REFERENCES Staff_Dim(staff_id),
 	shift_id VARCHAR(10) FOREIGN KEY REFERENCES Shift_Dim(shift_id),
---	rota_id VARCHAR(10) FOREIGN KEY REFERENCES Rota_Dim(rota_id),
-	date_id BIGINT FOREIGN KEY REFERENCES Date_Dim(date_id),
+	date_id BIGINT FOREIGN KEY REFERENCES Dim_Date(Date_ID), 
 	worked_hours INT,
 	sal_per_hour DECIMAL(10,2),
 	cost DECIMAL(10,2)
