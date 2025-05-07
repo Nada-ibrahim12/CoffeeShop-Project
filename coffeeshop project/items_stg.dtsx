@@ -11,11 +11,35 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="items_stg"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{BCBAEE40-17A0-4893-BEC8-61A85B29C540}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{DE9C94F1-D368-4013-B3F1-A37114958BBF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E396E4BB-DBED-45BC-99D3-28A26F34FD67}"
+      DTS:ObjectName="DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-CLGUGFV\MSSQLSERVER01;Initial Catalog=CoffeeShop;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-items_stg-{E396E4BB-DBED-45BC-99D3-28A26F34FD67}DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop_STG]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8E2382A5-49F5-41D4-9630-3BB91395F6A4}"
+      DTS:ObjectName="DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop_STG">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-CLGUGFV\MSSQLSERVER01;Initial Catalog=CoffeeShop_STG;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-items_stg-{8E2382A5-49F5-41D4-9630-3BB91395F6A4}DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop_STG;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop]"
       DTS:CreationName="OLEDB"
@@ -77,7 +101,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D7666E67-A877-47B1-A0BB-A9C521FC7E9A}"
+          SQLTask:Connection="{8E2382A5-49F5-41D4-9630-3BB91395F6A4}"
           SQLTask:SqlStatementSource="SELECT last_extract_date&#xA;FROM     dbo.Conf_Table&#xA;WHERE  (table_name = 'items')"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -232,8 +256,8 @@
               <connections>
                 <connection
                   refId="Package\Src to STG\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop_STG]"
-                  connectionManagerRefId="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop_STG]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop_STG]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop_STG]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -245,14 +269,6 @@
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
-                    <inputColumn
-                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[item_id]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="10"
-                      cachedName="item_id"
-                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[item_id]"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[item_id]" />
                     <inputColumn
                       refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[create_timeStamp]"
                       cachedDataType="dbTimeStamp"
@@ -266,29 +282,21 @@
                       externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[src_update_date]"
                       lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_update]" />
                     <inputColumn
-                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[item_price]"
-                      cachedDataType="numeric"
-                      cachedName="item_price"
-                      cachedPrecision="10"
-                      cachedScale="2"
-                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[item_price]"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[item_price]" />
-                    <inputColumn
-                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[item_size]"
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[item_id]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="10"
-                      cachedName="item_size"
-                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[item_size]"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[item_size]" />
+                      cachedName="item_id"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[item_id]"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[item_id]" />
                     <inputColumn
-                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[item_cat]"
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sku]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="20"
-                      cachedName="item_cat"
-                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[item_cat]"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[item_cat]" />
+                      cachedName="sku"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sku]"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[sku]" />
                     <inputColumn
                       refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[item_name]"
                       cachedCodepage="1252"
@@ -298,22 +306,32 @@
                       externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[item_name]"
                       lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[item_name]" />
                     <inputColumn
-                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sku]"
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[item_cat]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="20"
-                      cachedName="sku"
-                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sku]"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[sku]" />
+                      cachedName="item_cat"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[item_cat]"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[item_cat]" />
+                    <inputColumn
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[item_size]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="item_size"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[item_size]"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[item_size]" />
+                    <inputColumn
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[item_price]"
+                      cachedDataType="numeric"
+                      cachedName="item_price"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[item_price]"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[item_price]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[item_id]"
-                      codePage="1252"
-                      dataType="str"
-                      length="10"
-                      name="item_id" />
                     <externalMetadataColumn
                       refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[src_update_date]"
                       dataType="dbTimeStamp"
@@ -322,6 +340,12 @@
                       refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[create_timestamp]"
                       dataType="dbTimeStamp"
                       name="create_timestamp" />
+                    <externalMetadataColumn
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[item_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="item_id" />
                     <externalMetadataColumn
                       refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sku]"
                       codePage="1252"
@@ -433,8 +457,8 @@ WHERE  last_update &gt; '1/1/1950';</property>
               <connections>
                 <connection
                   refId="Package\Src to STG\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop]"
-                  connectionManagerRefId="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -661,7 +685,7 @@ WHERE  last_update &gt; '1/1/1950';</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D7666E67-A877-47B1-A0BB-A9C521FC7E9A}"
+          SQLTask:Connection="{8E2382A5-49F5-41D4-9630-3BB91395F6A4}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE stg_items;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -678,8 +702,8 @@ WHERE  last_update &gt; '1/1/1950';</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D7666E67-A877-47B1-A0BB-A9C521FC7E9A}"
-          SQLTask:SqlStatementSource="UPDATE Conf_Table&#xA;SET last_extract_date = (SELECT ISNULL(MAX(src_update_date), '1950-01-01') FROM stg_items)&#xA;WHERE table_name = 'items';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{8E2382A5-49F5-41D4-9630-3BB91395F6A4}"
+          SQLTask:SqlStatementSource="UPDATE Conf_Table&#xA;SET &#xA;last_extract_date = GETDATE()&#xA;WHERE table_name = 'recipes';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -722,6 +746,10 @@ WHERE  last_update &gt; '1/1/1950';</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="152,41.6"
+          Id="Package\ExtractLastDate"
+          TopLeft="63.333334790336,132.466666371359" />
+        <NodeLayout
           Size="129.6,41.6"
           Id="Package\Src to STG"
           TopLeft="70.833336019682,210.999999367198" />
@@ -729,10 +757,6 @@ WHERE  last_update &gt; '1/1/1950';</property>
           Size="163.2,41.6"
           Id="Package\truncate items_stg"
           TopLeft="60,60" />
-        <NodeLayout
-          Size="152,41.6"
-          Id="Package\ExtractLastDate"
-          TopLeft="63.333334790336,132.466666371359" />
         <NodeLayout
           Size="162.4,41.6"
           Id="Package\Update conf_table"
@@ -824,10 +848,6 @@ WHERE  last_update &gt; '1/1/1950';</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\Src to STG\Derived Column"
-          TopLeft="113.833327414261,132.033332453436" />
-        <NodeLayout
           Size="171.2,41.6"
           Id="Package\Src to STG\OLE DB Destination"
           TopLeft="107.999996038775,222.699998698235" />
@@ -835,6 +855,10 @@ WHERE  last_update &gt; '1/1/1950';</property>
           Size="152,41.6"
           Id="Package\Src to STG\OLE DB Source"
           TopLeft="121.333327004479,45.3666663894389" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Src to STG\Derived Column"
+          TopLeft="113.833327414261,132.033332453436" />
         <EdgeLayout
           Id="Package\Src to STG.Paths[OLE DB Source Output]"
           TopLeft="193.78332720937,86.9666663894389">

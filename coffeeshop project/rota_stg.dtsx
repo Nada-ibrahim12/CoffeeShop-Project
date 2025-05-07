@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="rota_stg"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{2DFB3F70-AAB8-43CB-96EF-7A14DFE75DE4}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{58E083F3-B7FD-47DD-8AE8-452BD4144A8D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -77,7 +77,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{FFAC159F-FBD4-43E5-87C8-60364C5DF412}"
+          SQLTask:Connection="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}"
           SQLTask:SqlStatementSource="SELECT last_extract_date&#xA;FROM     dbo.Conf_Table&#xA;WHERE  (table_name = 'rota')"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -232,8 +232,8 @@
               <connections>
                 <connection
                   refId="Package\Src to STG\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop_STG]"
-                  connectionManagerRefId="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop_STG]"
+                  connectionManagerID="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-CLGUGFV_MSSQLSERVER01.CoffeeShop_STG]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -411,8 +411,8 @@ WHERE  last_update &gt; '1/1/1950';</property>
               <connections>
                 <connection
                   refId="Package\Src to STG\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop]"
-                  connectionManagerRefId="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop]"
+                  connectionManagerID="{C064C448-D722-43BB-959D-3B769D434B8A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-CLGUGFV_MSSQLSERVER01.CoffeeShop]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -603,7 +603,7 @@ WHERE  last_update &gt; '1/1/1950';</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{FFAC159F-FBD4-43E5-87C8-60364C5DF412}"
+          SQLTask:Connection="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE stg_rota;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -620,8 +620,8 @@ WHERE  last_update &gt; '1/1/1950';</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{FFAC159F-FBD4-43E5-87C8-60364C5DF412}"
-          SQLTask:SqlStatementSource="UPDATE Conf_Table&#xA;SET last_extract_date = (SELECT ISNULL(MAX(src_update_date), '1950-01-01') FROM stg_rota)&#xA;WHERE table_name = 'rota';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}"
+          SQLTask:SqlStatementSource="UPDATE Conf_Table&#xA;SET &#xA;last_extract_date = GETDATE()&#xA;WHERE table_name = 'rota';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -770,47 +770,13 @@ WHERE  last_update &gt; '1/1/1950';</property>
           Id="Package\Src to STG\OLE DB Destination"
           TopLeft="443.833311022985,178.499999005596" />
         <NodeLayout
-          Size="152,41.6"
-          Id="Package\Src to STG\OLE DB Source"
-          TopLeft="50.4999975413082,65.2999995841583" />
-        <NodeLayout
           Size="152.8,41.6"
           Id="Package\Src to STG\Derived Column"
           TopLeft="255.499986340602,138.966665738556" />
-        <EdgeLayout
-          Id="Package\Src to STG.Paths[Derived Column Output]"
-          TopLeft="408.299986340602,159.766665738556">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="35.5333246823825,39.5333332670406"
-              Start="0,0"
-              End="28.0333246823825,39.5333332670406">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="13.7666623411912,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="13.7666623411912,0"
-                    Point2="17.7666623411912,0"
-                    Point3="17.7666623411912,4" />
-                  <mssgle:LineSegment
-                    End="17.7666623411912,35.5333332670406" />
-                  <mssgle:CubicBezierSegment
-                    Point1="17.7666623411912,35.5333332670406"
-                    Point2="17.7666623411912,39.5333332670406"
-                    Point3="21.7666623411912,39.5333332670406" />
-                  <mssgle:LineSegment
-                    End="28.0333246823825,39.5333332670406" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Src to STG\OLE DB Source"
+          TopLeft="50.4999975413082,65.2999995841583" />
         <EdgeLayout
           Id="Package\Src to STG.Paths[OLE DB Source Output]"
           TopLeft="126.499997541308,106.899999584158">
@@ -837,6 +803,40 @@ WHERE  last_update &gt; '1/1/1950';</property>
                     Point3="205.399988799294,20.0333330771986" />
                   <mssgle:LineSegment
                     End="205.399988799294,24.5666661543972" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Src to STG.Paths[Derived Column Output]"
+          TopLeft="408.299986340602,159.766665738556">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="35.5333246823825,39.5333332670406"
+              Start="0,0"
+              End="28.0333246823825,39.5333332670406">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="13.7666623411912,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.7666623411912,0"
+                    Point2="17.7666623411912,0"
+                    Point3="17.7666623411912,4" />
+                  <mssgle:LineSegment
+                    End="17.7666623411912,35.5333332670406" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17.7666623411912,35.5333332670406"
+                    Point2="17.7666623411912,39.5333332670406"
+                    Point3="21.7666623411912,39.5333332670406" />
+                  <mssgle:LineSegment
+                    End="28.0333246823825,39.5333332670406" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

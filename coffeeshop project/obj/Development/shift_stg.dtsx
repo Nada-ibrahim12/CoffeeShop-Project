@@ -1,66 +1,66 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="5/7/2025 3:39:39 AM"
+  DTS:CreationDate="5/7/2025 4:04:42 AM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="MENNA"
   DTS:CreatorName="Menna\Mennaaaaa"
-  DTS:DTSID="{39B5A896-EE16-4B25-8DBA-4909E380D77E}"
+  DTS:DTSID="{8658842D-98B8-43AB-A640-8E0F12D013F3}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5685.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package3"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{93E89DDA-C305-458E-8F79-92DC9DB4373D}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{76282DA9-2ACA-4BBB-86CB-B10CA45F1185}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{8484D82C-3D03-4D3C-BE26-B900BF6DBC57}"
+      DTS:DTSID="{E9F51363-150A-4AF3-B222-DB9827D46C32}"
       DTS:ObjectName="MENNA\SQLEXPRESS.CoffeeShop">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=MENNA\SQLEXPRESS;Initial Catalog=CoffeeShop;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package3-{8484D82C-3D03-4D3C-BE26-B900BF6DBC57}MENNA\SQLEXPRESS.CoffeeShop;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=MENNA\SQLEXPRESS;Initial Catalog=CoffeeShop;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package3-{E9F51363-150A-4AF3-B222-DB9827D46C32}MENNA\SQLEXPRESS.CoffeeShop;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop_STG]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{62A3502C-118A-4BBD-B8DF-A9B04DD015F5}"
+      DTS:DTSID="{B3E776CD-524A-4C4F-AA8C-D030C67B43D5}"
       DTS:ObjectName="MENNA\SQLEXPRESS.CoffeeShop_STG">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=MENNA\SQLEXPRESS;Initial Catalog=CoffeeShop_STG;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package3-{62A3502C-118A-4BBD-B8DF-A9B04DD015F5}MENNA\SQLEXPRESS.CoffeeShop_STG;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=MENNA\SQLEXPRESS;Initial Catalog=CoffeeShop_STG;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package3-{B3E776CD-524A-4C4F-AA8C-D030C67B43D5}MENNA\SQLEXPRESS.CoffeeShop_STG;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{9C835CB1-AAD2-4085-9B2C-717F3A249F8F}"
+      DTS:DTSID="{C469A111-3EC6-4DD1-814C-877B222D1277}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="Last_Extract_Date">
       <DTS:VariableValue
-        DTS:DataType="7">5/7/2025 2:26:00 AM</DTS:VariableValue>
+        DTS:DataType="7">5/7/2025 3:24:00 AM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{67F2F222-4B46-44C2-AF65-204DCC66E2C7}"
+      DTS:DTSID="{68D8BA6B-CE4E-47AD-BE2C-BE03192558CB}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;SELECT * FROM staff WHERE last_update &gt; ' &quot;+ (DT_WSTR, 50)  @[User::Last_Extract_Date]  +&quot; ';&quot;"
+      DTS:Expression="&quot;SELECT * FROM shift WHERE last_update &gt; ' &quot;+ (DT_WSTR, 50)  @[User::Last_Extract_Date]  +&quot; ';&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
-      DTS:ObjectName="Sql_Statement">
+      DTS:ObjectName="Sql_Select">
       <DTS:VariableValue
-        DTS:DataType="8">SELECT * FROM staff WHERE last_update &gt; ' 5/7/2025 2:26:00 AM ';</DTS:VariableValue>
+        DTS:DataType="8">SELECT * FROM shift WHERE last_update &gt; ' 5/7/2025 3:24:00 AM ';</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -68,7 +68,7 @@
       DTS:refId="Package\ExtractLastDate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{ca18ac8e-5376-499a-8a4d-5b30d0524d03}"
+      DTS:DTSID="{71e14fa2-fe61-413f-9ec8-ac7d5fdf3145}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="ExtractLastDate"
@@ -78,7 +78,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}"
-          SQLTask:SqlStatementSource="SELECT last_extract_date&#xA;FROM     dbo.Conf_Table&#xA;WHERE  (table_name = 'staff')"
+          SQLTask:SqlStatementSource="SELECT last_extract_date&#xA;FROM     dbo.Conf_Table&#xA;WHERE  (table_name = 'shift')"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="Last_Extract_Date"
@@ -90,7 +90,7 @@
       DTS:refId="Package\Src to STG"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{be7519da-1da2-470a-b3a7-75ba00d2e1b3}"
+      DTS:DTSID="{ca7f3869-cbcd-434e-8b65-8d9ac3d13b64}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Src to STG"
@@ -112,22 +112,6 @@
                   refId="Package\Src to STG\Derived Column.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Src to STG\Derived Column.Inputs[Derived Column Input].Columns[first_name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="first_name"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[first_name]" />
-                    <inputColumn
-                      refId="Package\Src to STG\Derived Column.Inputs[Derived Column Input].Columns[last_name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="last_name"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_name]" />
-                  </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
@@ -159,29 +143,6 @@
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
                           name="FriendlyExpression">GETDATE()</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Src to STG\Derived Column.Outputs[Derived Column Output].Columns[Full_Name]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      length="101"
-                      lineageId="Package\Src to STG\Derived Column.Outputs[Derived Column Output].Columns[Full_Name]"
-                      name="Full_Name"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">#{Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[first_name]} + " " + #{Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_name]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">first_name + " " + last_name</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -228,7 +189,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[stg_staff]</property>
+                  name="OpenRowset">[dbo].[stg_shift]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -297,29 +258,35 @@
                       externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[src_update_date]"
                       lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_update]" />
                     <inputColumn
-                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[staff_id]"
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[shift_id]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="10"
-                      cachedName="staff_id"
-                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[staff_id]"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[staff_id]" />
+                      cachedName="shift_id"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[shift_id]"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[shift_id]" />
                     <inputColumn
-                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[position]"
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[day_of_week]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="20"
-                      cachedName="position"
-                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[position]"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[position]" />
+                      cachedLength="10"
+                      cachedName="day_of_week"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[day_of_week]"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[day_of_week]" />
                     <inputColumn
-                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sal_per_hour]"
-                      cachedDataType="numeric"
-                      cachedName="sal_per_hour"
-                      cachedPrecision="10"
-                      cachedScale="2"
-                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sal_per_hour]"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[sal_per_hour]" />
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[start_time]"
+                      cachedDataType="dbTime2"
+                      cachedName="start_time"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_time]"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_time]" />
+                    <inputColumn
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[end_time]"
+                      cachedDataType="dbTime2"
+                      cachedName="end_time"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[end_time]"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_time]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -332,35 +299,27 @@
                       dataType="dbTimeStamp"
                       name="create_timestamp" />
                     <externalMetadataColumn
-                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[staff_id]"
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[shift_id]"
                       codePage="1252"
                       dataType="str"
                       length="10"
-                      name="staff_id" />
+                      name="shift_id" />
                     <externalMetadataColumn
-                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[position]"
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[day_of_week]"
                       codePage="1252"
                       dataType="str"
-                      length="20"
-                      name="position" />
+                      length="10"
+                      name="day_of_week" />
                     <externalMetadataColumn
-                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sal_per_hour]"
-                      dataType="numeric"
-                      name="sal_per_hour"
-                      precision="10"
-                      scale="2" />
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_time]"
+                      dataType="dbTime2"
+                      name="start_time"
+                      scale="7" />
                     <externalMetadataColumn
-                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="first_name" />
-                    <externalMetadataColumn
-                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="last_name" />
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[end_time]"
+                      dataType="dbTime2"
+                      name="end_time"
+                      scale="7" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -420,7 +379,7 @@ WHERE  last_update &gt; '1/1/1950';</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable">User::Sql_Statement</property>
+                  name="SqlCommandVariable">User::Sql_Select</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -462,59 +421,46 @@ WHERE  last_update &gt; '1/1/1950';</property>
                       name="last_update"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[staff_id]"
+                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[shift_id]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[staff_id]"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[shift_id]"
                       length="10"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[staff_id]"
-                      name="staff_id"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[shift_id]"
+                      name="shift_id"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[first_name]"
+                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[day_of_week]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[first_name]"
-                      length="50"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[first_name]"
-                      name="first_name"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[day_of_week]"
+                      length="10"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[day_of_week]"
+                      name="day_of_week"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_name]"
-                      codePage="1252"
-                      dataType="str"
+                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_time]"
+                      dataType="dbTime2"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[last_name]"
-                      length="50"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_name]"
-                      name="last_name"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[start_time]"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_time]"
+                      name="start_time"
+                      scale="7"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[position]"
-                      codePage="1252"
-                      dataType="str"
+                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_time]"
+                      dataType="dbTime2"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[position]"
-                      length="20"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[position]"
-                      name="position"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[sal_per_hour]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sal_per_hour]"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[sal_per_hour]"
-                      name="sal_per_hour"
-                      precision="10"
-                      scale="2"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[end_time]"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_time]"
+                      name="end_time"
+                      scale="7"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -524,35 +470,27 @@ WHERE  last_update &gt; '1/1/1950';</property>
                       dataType="dbTimeStamp"
                       name="last_update" />
                     <externalMetadataColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[staff_id]"
+                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[shift_id]"
                       codePage="1252"
                       dataType="str"
                       length="10"
-                      name="staff_id" />
+                      name="shift_id" />
                     <externalMetadataColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[first_name]"
+                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[day_of_week]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
-                      name="first_name" />
+                      length="10"
+                      name="day_of_week" />
                     <externalMetadataColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[last_name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="last_name" />
+                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[start_time]"
+                      dataType="dbTime2"
+                      name="start_time"
+                      scale="7" />
                     <externalMetadataColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[position]"
-                      codePage="1252"
-                      dataType="str"
-                      length="20"
-                      name="position" />
-                    <externalMetadataColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sal_per_hour]"
-                      dataType="numeric"
-                      name="sal_per_hour"
-                      precision="10"
-                      scale="2" />
+                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[end_time]"
+                      dataType="dbTime2"
+                      name="end_time"
+                      scale="7" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -561,40 +499,31 @@ WHERE  last_update &gt; '1/1/1950';</property>
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[staff_id]"
+                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[shift_id]"
                       codePage="1252"
                       dataType="str"
                       length="10"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[staff_id]"
-                      name="staff_id" />
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[shift_id]"
+                      name="shift_id" />
                     <outputColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[first_name]"
+                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[day_of_week]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[first_name]"
-                      name="first_name" />
+                      length="10"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[day_of_week]"
+                      name="day_of_week" />
                     <outputColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[last_name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[last_name]"
-                      name="last_name" />
+                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[start_time]"
+                      dataType="dbTime2"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[start_time]"
+                      name="start_time"
+                      scale="7" />
                     <outputColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[position]"
-                      codePage="1252"
-                      dataType="str"
-                      length="20"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[position]"
-                      name="position" />
-                    <outputColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sal_per_hour]"
-                      dataType="numeric"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sal_per_hour]"
-                      name="sal_per_hour"
-                      precision="10"
-                      scale="2" />
+                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[end_time]"
+                      dataType="dbTime2"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[end_time]"
+                      name="end_time"
+                      scale="7" />
                     <outputColumn
                       refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[last_update]"
                       dataType="dbTimeStamp"
@@ -634,27 +563,27 @@ WHERE  last_update &gt; '1/1/1950';</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\truncate staff_stg"
+      DTS:refId="Package\truncate shift_stg"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{5f2907d3-b5b8-4632-afd0-e1f1be9ea646}"
+      DTS:DTSID="{064695ba-d4c9-4b0a-bde6-1c6ef8d166d3}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="truncate staff_stg"
+      DTS:ObjectName="truncate shift_stg"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE stg_staff;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE stg_shift;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Update conf_table"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{7a641171-6374-4982-ade7-28fcaa1ecbe2}"
+      DTS:DTSID="{0173544b-0553-4e25-95b2-6f1951f41051}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Update conf_table"
@@ -664,7 +593,7 @@ WHERE  last_update &gt; '1/1/1950';</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}"
-          SQLTask:SqlStatementSource="UPDATE Conf_Table&#xA;SET &#xA;last_extract_date = GETDATE()&#xA;WHERE table_name = 'staff';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE Conf_Table&#xA;SET &#xA;last_extract_date = GETDATE()&#xA;WHERE table_name = 'shift';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -672,15 +601,15 @@ WHERE  last_update &gt; '1/1/1950';</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{49dfb5b7-b2c9-46cf-b21a-0b8f89b311bb}"
-      DTS:From="Package\truncate staff_stg"
+      DTS:DTSID="{61f83942-01ad-4be3-a2ba-8e06d93352b3}"
+      DTS:From="Package\truncate shift_stg"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\ExtractLastDate" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{73e9cb90-47d6-45cd-960f-dee450827580}"
+      DTS:DTSID="{daef65ba-35ad-44e0-9780-7fac0609eb4c}"
       DTS:From="Package\ExtractLastDate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
@@ -688,7 +617,7 @@ WHERE  last_update &gt; '1/1/1950';</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{77f25bcb-37cc-462a-9e49-715a32ec39c3}"
+      DTS:DTSID="{d489dc27-77fa-4296-abf8-1252811dd188}"
       DTS:From="Package\Src to STG"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
@@ -715,8 +644,8 @@ WHERE  last_update &gt; '1/1/1950';</property>
           Id="Package\Src to STG"
           TopLeft="70.833336019682,210.999999367198" />
         <NodeLayout
-          Size="158.4,41.6"
-          Id="Package\truncate staff_stg"
+          Size="157.6,41.6"
+          Id="Package\truncate shift_stg"
           TopLeft="60,60" />
         <NodeLayout
           Size="162.4,41.6"
@@ -724,7 +653,7 @@ WHERE  last_update &gt; '1/1/1950';</property>
           TopLeft="75.0000008195641,308.399998481274" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="139.266667395168,101.6">
+          TopLeft="139.066667395168,101.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"

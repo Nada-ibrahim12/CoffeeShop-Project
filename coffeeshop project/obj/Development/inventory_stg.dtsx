@@ -1,66 +1,90 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="5/7/2025 3:39:39 AM"
+  DTS:CreationDate="5/7/2025 3:24:56 AM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="MENNA"
   DTS:CreatorName="Menna\Mennaaaaa"
-  DTS:DTSID="{39B5A896-EE16-4B25-8DBA-4909E380D77E}"
+  DTS:DTSID="{19DE4E18-F42F-4B15-8CE3-3F8C4D208CA2}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5685.0"
   DTS:LocaleID="1033"
-  DTS:ObjectName="Package3"
+  DTS:ObjectName="Package4"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{93E89DDA-C305-458E-8F79-92DC9DB4373D}">
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{97DEFAE7-6547-45D4-A5D2-7925B56C34F9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{20B7193E-034D-4FAD-8629-928B969DC926}"
+      DTS:ObjectName="DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-CLGUGFV\MSSQLSERVER01;Initial Catalog=CoffeeShop;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package4-{20B7193E-034D-4FAD-8629-928B969DC926}DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop_STG]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1972E2F1-591A-4729-ADA9-6BFBF24367FD}"
+      DTS:ObjectName="DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop_STG">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-CLGUGFV\MSSQLSERVER01;Initial Catalog=CoffeeShop_STG;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package4-{1972E2F1-591A-4729-ADA9-6BFBF24367FD}DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop_STG;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{8484D82C-3D03-4D3C-BE26-B900BF6DBC57}"
+      DTS:DTSID="{26FC7A8E-57ED-48D3-B3F0-00D2885DBD0C}"
       DTS:ObjectName="MENNA\SQLEXPRESS.CoffeeShop">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=MENNA\SQLEXPRESS;Initial Catalog=CoffeeShop;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package3-{8484D82C-3D03-4D3C-BE26-B900BF6DBC57}MENNA\SQLEXPRESS.CoffeeShop;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=MENNA\SQLEXPRESS;Initial Catalog=CoffeeShop;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package4-{26FC7A8E-57ED-48D3-B3F0-00D2885DBD0C}MENNA\SQLEXPRESS.CoffeeShop;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop_STG]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{62A3502C-118A-4BBD-B8DF-A9B04DD015F5}"
+      DTS:DTSID="{AE6D1F86-E7CD-4322-A2A5-B4BC68C94E85}"
       DTS:ObjectName="MENNA\SQLEXPRESS.CoffeeShop_STG">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=MENNA\SQLEXPRESS;Initial Catalog=CoffeeShop_STG;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package3-{62A3502C-118A-4BBD-B8DF-A9B04DD015F5}MENNA\SQLEXPRESS.CoffeeShop_STG;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=MENNA\SQLEXPRESS;Initial Catalog=CoffeeShop_STG;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package4-{AE6D1F86-E7CD-4322-A2A5-B4BC68C94E85}MENNA\SQLEXPRESS.CoffeeShop_STG;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{9C835CB1-AAD2-4085-9B2C-717F3A249F8F}"
-      DTS:IncludeInDebugDump="6789"
+      DTS:DTSID="{CA891985-B92E-4DD7-BF69-5B98A4676DD2}"
+      DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="Last_Extract_Date">
       <DTS:VariableValue
-        DTS:DataType="7">5/7/2025 2:26:00 AM</DTS:VariableValue>
+        DTS:DataType="7">12:00:00 AM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{67F2F222-4B46-44C2-AF65-204DCC66E2C7}"
+      DTS:DTSID="{BAFEA300-97BB-4DE5-AD5C-8CC2F6DA5498}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;SELECT * FROM staff WHERE last_update &gt; ' &quot;+ (DT_WSTR, 50)  @[User::Last_Extract_Date]  +&quot; ';&quot;"
+      DTS:Expression="&quot;SELECT * FROM inventory WHERE last_update &gt; ' &quot;+ (DT_WSTR, 50)   @[User::Last_Extract_Date]  +&quot; ';&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
-      DTS:ObjectName="Sql_Statement">
+      DTS:ObjectName="Sql_select">
       <DTS:VariableValue
-        DTS:DataType="8">SELECT * FROM staff WHERE last_update &gt; ' 5/7/2025 2:26:00 AM ';</DTS:VariableValue>
+        DTS:DataType="8">SELECT * FROM inventory WHERE last_update &gt; ' 12:00:00 AM ';</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -68,7 +92,7 @@
       DTS:refId="Package\ExtractLastDate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{ca18ac8e-5376-499a-8a4d-5b30d0524d03}"
+      DTS:DTSID="{4d1193ec-e9d5-4382-844c-29c32d9738f1}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="ExtractLastDate"
@@ -77,8 +101,8 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}"
-          SQLTask:SqlStatementSource="SELECT last_extract_date&#xA;FROM     dbo.Conf_Table&#xA;WHERE  (table_name = 'staff')"
+          SQLTask:Connection="{1972E2F1-591A-4729-ADA9-6BFBF24367FD}"
+          SQLTask:SqlStatementSource="SELECT last_extract_date&#xA;FROM     dbo.Conf_Table&#xA;WHERE  (table_name = 'inventory')"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="Last_Extract_Date"
@@ -90,7 +114,7 @@
       DTS:refId="Package\Src to STG"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{be7519da-1da2-470a-b3a7-75ba00d2e1b3}"
+      DTS:DTSID="{d25f1923-deb2-45a4-8808-11424512eb40}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Src to STG"
@@ -112,22 +136,6 @@
                   refId="Package\Src to STG\Derived Column.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Src to STG\Derived Column.Inputs[Derived Column Input].Columns[first_name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="first_name"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[first_name]" />
-                    <inputColumn
-                      refId="Package\Src to STG\Derived Column.Inputs[Derived Column Input].Columns[last_name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="last_name"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_name]" />
-                  </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
@@ -159,29 +167,6 @@
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
                           name="FriendlyExpression">GETDATE()</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Src to STG\Derived Column.Outputs[Derived Column Output].Columns[Full_Name]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      length="101"
-                      lineageId="Package\Src to STG\Derived Column.Outputs[Derived Column Output].Columns[Full_Name]"
-                      name="Full_Name"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">#{Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[first_name]} + " " + #{Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_name]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">first_name + " " + last_name</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -228,7 +213,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[stg_staff]</property>
+                  name="OpenRowset">[dbo].[stg_inventory]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -254,7 +239,7 @@
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">true</property>
+                  name="FastLoadKeepIdentity">false</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
@@ -271,8 +256,8 @@
               <connections>
                 <connection
                   refId="Package\Src to STG\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-CLGUGFV_MSSQLSERVER01.CoffeeShop_STG]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop_STG]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop_STG]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -297,29 +282,29 @@
                       externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[src_update_date]"
                       lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_update]" />
                     <inputColumn
-                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[staff_id]"
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ing_id]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="10"
-                      cachedName="staff_id"
-                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[staff_id]"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[staff_id]" />
+                      cachedName="ing_id"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ing_id]"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_id]" />
                     <inputColumn
-                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[position]"
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[inv_id]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="20"
-                      cachedName="position"
-                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[position]"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[position]" />
+                      cachedLength="10"
+                      cachedName="inv_id"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[inv_id]"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[inv_id]" />
                     <inputColumn
-                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sal_per_hour]"
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[quantity]"
                       cachedDataType="numeric"
-                      cachedName="sal_per_hour"
+                      cachedName="quantity"
                       cachedPrecision="10"
                       cachedScale="2"
-                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sal_per_hour]"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[sal_per_hour]" />
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[quantity]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -332,35 +317,23 @@
                       dataType="dbTimeStamp"
                       name="create_timestamp" />
                     <externalMetadataColumn
-                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[staff_id]"
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ing_id]"
                       codePage="1252"
                       dataType="str"
                       length="10"
-                      name="staff_id" />
+                      name="ing_id" />
                     <externalMetadataColumn
-                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[position]"
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[inv_id]"
                       codePage="1252"
                       dataType="str"
-                      length="20"
-                      name="position" />
+                      length="10"
+                      name="inv_id" />
                     <externalMetadataColumn
-                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sal_per_hour]"
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
                       dataType="numeric"
-                      name="sal_per_hour"
+                      name="quantity"
                       precision="10"
                       scale="2" />
-                    <externalMetadataColumn
-                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="first_name" />
-                    <externalMetadataColumn
-                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="last_name" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -420,7 +393,7 @@ WHERE  last_update &gt; '1/1/1950';</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable">User::Sql_Statement</property>
+                  name="SqlCommandVariable">User::Sql_select</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -442,8 +415,8 @@ WHERE  last_update &gt; '1/1/1950';</property>
               <connections>
                 <connection
                   refId="Package\Src to STG\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="{C064C448-D722-43BB-959D-3B769D434B8A}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-CLGUGFV_MSSQLSERVER01.CoffeeShop]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -453,6 +426,39 @@ WHERE  last_update &gt; '1/1/1950';</property>
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
+                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ing_id]"
+                      length="10"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_id]"
+                      name="ing_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[inv_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[inv_id]"
+                      length="10"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[inv_id]"
+                      name="inv_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[quantity]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[quantity]"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[quantity]"
+                      name="quantity"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
                       refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_update]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Conversion"
@@ -461,98 +467,31 @@ WHERE  last_update &gt; '1/1/1950';</property>
                       lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_update]"
                       name="last_update"
                       truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[staff_id]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[staff_id]"
-                      length="10"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[staff_id]"
-                      name="staff_id"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[first_name]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[first_name]"
-                      length="50"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[first_name]"
-                      name="first_name"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_name]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[last_name]"
-                      length="50"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_name]"
-                      name="last_name"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[position]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[position]"
-                      length="20"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[position]"
-                      name="position"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[sal_per_hour]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sal_per_hour]"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[sal_per_hour]"
-                      name="sal_per_hour"
-                      precision="10"
-                      scale="2"
-                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[last_update]"
-                      dataType="dbTimeStamp"
-                      name="last_update" />
-                    <externalMetadataColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[staff_id]"
+                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ing_id]"
                       codePage="1252"
                       dataType="str"
                       length="10"
-                      name="staff_id" />
+                      name="ing_id" />
                     <externalMetadataColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[first_name]"
+                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[inv_id]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
-                      name="first_name" />
+                      length="10"
+                      name="inv_id" />
                     <externalMetadataColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[last_name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="last_name" />
-                    <externalMetadataColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[position]"
-                      codePage="1252"
-                      dataType="str"
-                      length="20"
-                      name="position" />
-                    <externalMetadataColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sal_per_hour]"
+                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[quantity]"
                       dataType="numeric"
-                      name="sal_per_hour"
+                      name="quantity"
                       precision="10"
                       scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[last_update]"
+                      dataType="dbTimeStamp"
+                      name="last_update" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -561,38 +500,24 @@ WHERE  last_update &gt; '1/1/1950';</property>
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[staff_id]"
+                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[inv_id]"
                       codePage="1252"
                       dataType="str"
                       length="10"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[staff_id]"
-                      name="staff_id" />
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[inv_id]"
+                      name="inv_id" />
                     <outputColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[first_name]"
+                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ing_id]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[first_name]"
-                      name="first_name" />
+                      length="10"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ing_id]"
+                      name="ing_id" />
                     <outputColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[last_name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[last_name]"
-                      name="last_name" />
-                    <outputColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[position]"
-                      codePage="1252"
-                      dataType="str"
-                      length="20"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[position]"
-                      name="position" />
-                    <outputColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sal_per_hour]"
+                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[quantity]"
                       dataType="numeric"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sal_per_hour]"
-                      name="sal_per_hour"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[quantity]"
+                      name="quantity"
                       precision="10"
                       scale="2" />
                     <outputColumn
@@ -634,27 +559,27 @@ WHERE  last_update &gt; '1/1/1950';</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\truncate staff_stg"
+      DTS:refId="Package\truncate items_stg"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{5f2907d3-b5b8-4632-afd0-e1f1be9ea646}"
+      DTS:DTSID="{d58ac732-1ac1-467d-9dd8-d30c6971772b}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="truncate staff_stg"
+      DTS:ObjectName="truncate items_stg"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE stg_staff;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{1972E2F1-591A-4729-ADA9-6BFBF24367FD}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE stg_inventory;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Update conf_table"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{7a641171-6374-4982-ade7-28fcaa1ecbe2}"
+      DTS:DTSID="{4ac2242d-523f-4dc2-9bfe-62705a483a4e}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Update conf_table"
@@ -663,8 +588,8 @@ WHERE  last_update &gt; '1/1/1950';</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}"
-          SQLTask:SqlStatementSource="UPDATE Conf_Table&#xA;SET &#xA;last_extract_date = GETDATE()&#xA;WHERE table_name = 'staff';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{1972E2F1-591A-4729-ADA9-6BFBF24367FD}"
+          SQLTask:SqlStatementSource="UPDATE Conf_Table&#xA;SET &#xA;last_extract_date = GETDATE()&#xA;WHERE table_name = 'inventory';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -672,15 +597,15 @@ WHERE  last_update &gt; '1/1/1950';</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{49dfb5b7-b2c9-46cf-b21a-0b8f89b311bb}"
-      DTS:From="Package\truncate staff_stg"
+      DTS:DTSID="{66e887df-bdf0-4e69-9157-7069737d5f0f}"
+      DTS:From="Package\truncate items_stg"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\ExtractLastDate" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{73e9cb90-47d6-45cd-960f-dee450827580}"
+      DTS:DTSID="{01206277-4839-4662-9b30-8945ecd224c3}"
       DTS:From="Package\ExtractLastDate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
@@ -688,7 +613,7 @@ WHERE  last_update &gt; '1/1/1950';</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{77f25bcb-37cc-462a-9e49-715a32ec39c3}"
+      DTS:DTSID="{5b1b7a33-5f05-4168-a116-d11f1c7d7a53}"
       DTS:From="Package\Src to STG"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
@@ -715,8 +640,8 @@ WHERE  last_update &gt; '1/1/1950';</property>
           Id="Package\Src to STG"
           TopLeft="70.833336019682,210.999999367198" />
         <NodeLayout
-          Size="158.4,41.6"
-          Id="Package\truncate staff_stg"
+          Size="163.2,41.6"
+          Id="Package\truncate items_stg"
           TopLeft="60,60" />
         <NodeLayout
           Size="162.4,41.6"
@@ -724,18 +649,18 @@ WHERE  last_update &gt; '1/1/1950';</property>
           TopLeft="75.0000008195641,308.399998481274" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="139.266667395168,101.6">
+          TopLeft="140.466667395168,101.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,30.866666371359"
+              EndConnector="0,30.8666663713587"
               Start="0,0"
-              End="0,23.366666371359">
+              End="0,23.3666663713587">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.366666371359" />
+                    End="0,23.3666663713587" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -809,13 +734,13 @@ WHERE  last_update &gt; '1/1/1950';</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="152,41.6"
-          Id="Package\Src to STG\OLE DB Source"
-          TopLeft="50.4999975413082,65.2999995841583" />
-        <NodeLayout
           Size="171.2,41.6"
           Id="Package\Src to STG\OLE DB Destination"
           TopLeft="443.833311022985,178.499999005596" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Src to STG\OLE DB Source"
+          TopLeft="50.4999975413082,65.2999995841583" />
         <NodeLayout
           Size="152.8,41.6"
           Id="Package\Src to STG\Derived Column"
@@ -892,15 +817,20 @@ WHERE  last_update &gt; '1/1/1950';</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Src to STG\OLE DB Source">
+    design-time-name="Package\Src to STG\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Src to STG\OLE DB Destination">
+    design-time-name="Package\Src to STG\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

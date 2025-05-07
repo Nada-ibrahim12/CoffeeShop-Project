@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package3"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{565D7520-0D79-474B-A446-E978DE8604AB}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{76282DA9-2ACA-4BBB-86CB-B10CA45F1185}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -77,7 +77,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{B3E776CD-524A-4C4F-AA8C-D030C67B43D5}"
+          SQLTask:Connection="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}"
           SQLTask:SqlStatementSource="SELECT last_extract_date&#xA;FROM     dbo.Conf_Table&#xA;WHERE  (table_name = 'shift')"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -232,8 +232,8 @@
               <connections>
                 <connection
                   refId="Package\Src to STG\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop_STG]"
-                  connectionManagerRefId="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop_STG]"
+                  connectionManagerID="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-CLGUGFV_MSSQLSERVER01.CoffeeShop_STG]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -401,8 +401,8 @@ WHERE  last_update &gt; '1/1/1950';</property>
               <connections>
                 <connection
                   refId="Package\Src to STG\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop]"
-                  connectionManagerRefId="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop]"
+                  connectionManagerID="{C064C448-D722-43BB-959D-3B769D434B8A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-CLGUGFV_MSSQLSERVER01.CoffeeShop]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -575,7 +575,7 @@ WHERE  last_update &gt; '1/1/1950';</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{B3E776CD-524A-4C4F-AA8C-D030C67B43D5}"
+          SQLTask:Connection="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE stg_shift;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -592,8 +592,8 @@ WHERE  last_update &gt; '1/1/1950';</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{B3E776CD-524A-4C4F-AA8C-D030C67B43D5}"
-          SQLTask:SqlStatementSource="UPDATE Conf_Table&#xA;SET last_extract_date = (SELECT ISNULL(MAX(src_update_date), '1950-01-01') FROM stg_shift)&#xA;WHERE table_name = 'shift';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}"
+          SQLTask:SqlStatementSource="UPDATE Conf_Table&#xA;SET &#xA;last_extract_date = GETDATE()&#xA;WHERE table_name = 'shift';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -738,6 +738,10 @@ WHERE  last_update &gt; '1/1/1950';</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="152,41.6"
+          Id="Package\Src to STG\OLE DB Source"
+          TopLeft="50.4999975413082,65.2999995841583" />
+        <NodeLayout
           Size="171.2,41.6"
           Id="Package\Src to STG\OLE DB Destination"
           TopLeft="443.833311022985,178.499999005596" />
@@ -745,10 +749,6 @@ WHERE  last_update &gt; '1/1/1950';</property>
           Size="152.8,41.6"
           Id="Package\Src to STG\Derived Column"
           TopLeft="255.499986340602,138.966665738556" />
-        <NodeLayout
-          Size="152,41.6"
-          Id="Package\Src to STG\OLE DB Source"
-          TopLeft="50.4999975413082,65.2999995841583" />
         <EdgeLayout
           Id="Package\Src to STG.Paths[OLE DB Source Output]"
           TopLeft="126.499997541308,106.899999584158">
@@ -821,6 +821,14 @@ WHERE  last_update &gt; '1/1/1950';</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\Src to STG\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Src to STG\OLE DB Destination">
     <Properties>
       <Property>
@@ -830,14 +838,6 @@ WHERE  last_update &gt; '1/1/1950';</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Src to STG\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

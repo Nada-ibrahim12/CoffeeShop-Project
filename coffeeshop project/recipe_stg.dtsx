@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="recipe_stg"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{20FBDCB6-ACB2-4BA7-AEB4-09B628940BC6}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{DBD5A6E1-41C8-4445-AE8C-73B31436E19D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -77,7 +77,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{DCB1E0E8-81A0-41B1-BBA1-B42A80252CCD}"
+          SQLTask:Connection="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}"
           SQLTask:SqlStatementSource="SELECT last_extract_date&#xA;FROM     dbo.Conf_Table&#xA;WHERE  (table_name = 'recipes')"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -225,7 +225,7 @@ where [refTable].[ing_id] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ing_id" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ing_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ing_weight" dataType="DT_NUMERIC" length="0" precision="10" scale="2" codePage="0"/&gt;&lt;referenceColumn name="ing_meas" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ing_price" dataType="DT_NUMERIC" length="0" precision="10" scale="2" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ing_id" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ing_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ing_weight" dataType="DT_NUMERIC" length="0" precision="10" scale="2" codePage="0"/&gt;&lt;referenceColumn name="ing_meas" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ing_price" dataType="DT_NUMERIC" length="0" precision="10" scale="2" codePage="0"/&gt;&lt;referenceColumn name="last_update" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -243,8 +243,8 @@ where [refTable].[ing_id] = ?</property>
               <connections>
                 <connection
                   refId="Package\Src to STG\Lookup.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop]"
-                  connectionManagerRefId="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop]"
+                  connectionManagerID="{C064C448-D722-43BB-959D-3B769D434B8A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-CLGUGFV_MSSQLSERVER01.CoffeeShop]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -329,6 +329,22 @@ where [refTable].[ing_id] = ?</property>
                           dataType="System.String"
                           description="Specifies the column in the reference table from which a column is copied."
                           name="CopyFromReferenceColumn">ing_price</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Src to STG\Lookup.Outputs[Lookup Match Output].Columns[ing_meas]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="10"
+                      lineageId="Package\Src to STG\Lookup.Outputs[Lookup Match Output].Columns[ing_meas]"
+                      name="ing_meas"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ing_meas</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -425,8 +441,8 @@ where [refTable].[ing_id] = ?</property>
               <connections>
                 <connection
                   refId="Package\Src to STG\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop_STG]"
-                  connectionManagerRefId="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop_STG]"
+                  connectionManagerID="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-CLGUGFV_MSSQLSERVER01.CoffeeShop_STG]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -450,6 +466,68 @@ where [refTable].[ing_id] = ?</property>
                       cachedName="last_update"
                       externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[src_update_date]"
                       lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_update]" />
+                    <inputColumn
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[row_id]"
+                      cachedDataType="i4"
+                      cachedName="row_id"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[row_id]"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[row_id]" />
+                    <inputColumn
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[recipe_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="recipe_id"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[recipe_id]"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[recipe_id]" />
+                    <inputColumn
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ing_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="ing_id"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ing_id]"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_id]" />
+                    <inputColumn
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[quantity]"
+                      cachedDataType="numeric"
+                      cachedName="quantity"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[recipe_quantity]"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[quantity]" />
+                    <inputColumn
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ing_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ing_name"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ing_name]"
+                      lineageId="Package\Src to STG\Lookup.Outputs[Lookup Match Output].Columns[ing_name]" />
+                    <inputColumn
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ing_weight]"
+                      cachedDataType="numeric"
+                      cachedName="ing_weight"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ing_weight]"
+                      lineageId="Package\Src to STG\Lookup.Outputs[Lookup Match Output].Columns[ing_weight]" />
+                    <inputColumn
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ing_price]"
+                      cachedDataType="numeric"
+                      cachedName="ing_price"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ing_price]"
+                      lineageId="Package\Src to STG\Lookup.Outputs[Lookup Match Output].Columns[ing_price]" />
+                    <inputColumn
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ing_meas]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="ing_meas"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ing_meas]"
+                      lineageId="Package\Src to STG\Lookup.Outputs[Lookup Match Output].Columns[ing_meas]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -588,8 +666,8 @@ WHERE  last_update &gt; '1/1/1950';</property>
               <connections>
                 <connection
                   refId="Package\Src to STG\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop]"
-                  connectionManagerRefId="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop]"
+                  connectionManagerID="{C064C448-D722-43BB-959D-3B769D434B8A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-CLGUGFV_MSSQLSERVER01.CoffeeShop]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -767,7 +845,7 @@ WHERE  last_update &gt; '1/1/1950';</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{DCB1E0E8-81A0-41B1-BBA1-B42A80252CCD}"
+          SQLTask:Connection="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE stg_recipes;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -784,8 +862,8 @@ WHERE  last_update &gt; '1/1/1950';</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{DCB1E0E8-81A0-41B1-BBA1-B42A80252CCD}"
-          SQLTask:SqlStatementSource="UPDATE Conf_Table&#xA;SET last_extract_date = (SELECT ISNULL(MAX(src_update_date), '1950-01-01') FROM stg_recipes)&#xA;WHERE table_name = 'recipes';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}"
+          SQLTask:SqlStatementSource="UPDATE Conf_Table&#xA;SET &#xA;last_extract_date = GETDATE()&#xA;WHERE table_name = 'recipes';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -828,6 +906,10 @@ WHERE  last_update &gt; '1/1/1950';</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="152,41.6"
+          Id="Package\ExtractLastDate"
+          TopLeft="63.333334790336,132.466666371359" />
+        <NodeLayout
           Size="129.6,41.6"
           Id="Package\Src to STG"
           TopLeft="70.833336019682,210.999999367198" />
@@ -835,10 +917,6 @@ WHERE  last_update &gt; '1/1/1950';</property>
           Size="172,41.6"
           Id="Package\truncate recipes_stg"
           TopLeft="60,60" />
-        <NodeLayout
-          Size="152,41.6"
-          Id="Package\ExtractLastDate"
-          TopLeft="63.333334790336,132.466666371359" />
         <NodeLayout
           Size="162.4,41.6"
           Id="Package\Update conf_table"
@@ -930,49 +1008,21 @@ WHERE  last_update &gt; '1/1/1950';</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\Src to STG\Derived Column"
-          TopLeft="318.833316213555,158.033332272635" />
+          Size="152,41.6"
+          Id="Package\Src to STG\OLE DB Source"
+          TopLeft="50.4999975413082,65.2999995841583" />
         <NodeLayout
           Size="171.2,41.6"
           Id="Package\Src to STG\OLE DB Destination"
           TopLeft="450.499977325401,220.099998716315" />
         <NodeLayout
-          Size="152,41.6"
-          Id="Package\Src to STG\OLE DB Source"
-          TopLeft="50.4999975413082,65.2999995841583" />
-        <EdgeLayout
-          Id="Package\Src to STG.Paths[Derived Column Output]"
-          TopLeft="471.633316213555,178.833332272635">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="64.4666611118454,41.2666664436798"
-              Start="0,0"
-              End="64.4666611118454,33.7666664436798">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="60.4666611118454,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="60.4666611118454,0"
-                    Point2="64.4666611118454,0"
-                    Point3="64.4666611118454,4" />
-                  <mssgle:LineSegment
-                    End="64.4666611118454,33.7666664436798" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
           Size="112.8,41.6"
           Id="Package\Src to STG\Lookup"
           TopLeft="224.666654691929,110.366665937437" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Src to STG\Derived Column"
+          TopLeft="318.833316213555,158.033332272635" />
         <EdgeLayout
           Id="Package\Src to STG.Paths[OLE DB Source Output]"
           TopLeft="202.499997541308,86.0999995841583">
@@ -1027,13 +1077,49 @@ WHERE  last_update &gt; '1/1/1950';</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="9.57527480287681,-17.609375,96.3827734375,11.609375"
+              BoundingBox="9.5752748028768,-17.609375,96.3827734375,11.609375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Src to STG.Paths[Derived Column Output]"
+          TopLeft="471.633316213555,178.833332272635">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="64.4666611118454,41.2666664436798"
+              Start="0,0"
+              End="64.4666611118454,33.7666664436798">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="60.4666611118454,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="60.4666611118454,0"
+                    Point2="64.4666611118454,0"
+                    Point3="64.4666611118454,4" />
+                  <mssgle:LineSegment
+                    End="64.4666611118454,33.7666664436798" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Src to STG\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Src to STG\OLE DB Destination">
     <Properties>
@@ -1044,14 +1130,6 @@ WHERE  last_update &gt; '1/1/1950';</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Src to STG\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
