@@ -2,13 +2,33 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>coffeeshop project</Name>
-    <LastWriteTime>2025-05-02T19:56:57.5185261Z</LastWriteTime>
+    <LastWriteTime>2025-05-07T00:32:39.5274618Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>SRC to STG.dtsx</Name>
-      <LastWriteTime>2025-05-04T20:11:42.9246794Z</LastWriteTime>
+      <LastWriteTime>2025-05-04T12:09:42.1940003Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>orders_stg.dtsx</Name>
+      <LastWriteTime>2025-05-07T00:32:39.5043111Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>items_stg.dtsx</Name>
+      <LastWriteTime>2025-05-07T00:32:39.4583562Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Package4.dtsx</Name>
+      <LastWriteTime>2025-05-07T00:32:26.8961674Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>recipe_stg.dtsx</Name>
+      <LastWriteTime>2025-05-07T00:32:38.0733284Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
