@@ -72,6 +72,39 @@ CREATE TABLE rota (
     FOREIGN KEY (shift_id) REFERENCES shift(shift_id),
     FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
 );
+ select * from staff;
+-- staff table
+ALTER TABLE staff 
+ADD last_update DATETIME NOT NULL CONSTRAINT DF_staff_last_update DEFAULT (GETDATE());
+
+-- items table
+ALTER TABLE items 
+ADD last_update DATETIME NOT NULL CONSTRAINT DF_items_last_update DEFAULT (GETDATE());
+
+-- orders table
+ALTER TABLE orders 
+ADD last_update DATETIME NOT NULL CONSTRAINT DF_orders_last_update DEFAULT (GETDATE());
+
+-- ingredients table
+ALTER TABLE ingredients 
+ADD last_update DATETIME NOT NULL CONSTRAINT DF_ingredients_last_update DEFAULT (GETDATE());
+
+-- recipes table
+ALTER TABLE recipes 
+ADD last_update DATETIME NOT NULL CONSTRAINT DF_recipes_last_update DEFAULT (GETDATE());
+
+-- inventory table
+ALTER TABLE inventory 
+ADD last_update DATETIME NOT NULL CONSTRAINT DF_inventory_last_update DEFAULT (GETDATE());
+
+-- shift table
+ALTER TABLE shift 
+ADD last_update DATETIME NOT NULL CONSTRAINT DF_shift_last_update DEFAULT (GETDATE());
+
+-- rota table
+ALTER TABLE rota 
+ADD last_update DATETIME NOT NULL CONSTRAINT DF_rota_last_update DEFAULT (GETDATE());
+
 
 -- records of items table --
 INSERT INTO items VALUES
