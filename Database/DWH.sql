@@ -2,12 +2,14 @@ CREATE DATABASE CoffeeShop_DWH;
 
 USE CoffeeShop_DWH;
 ---- DIMENSION TABLES
-
+DROP DATABASE CoffeeShop_DWH;
 
 --1. RECIPE DIMENSION TABLE
 SELECT * FROM IngredientRecipe_Dim;
 
 DELETE FROM IngredientRecipe_Dim;
+
+-- conformed (used in ETL)
 CREATE TABLE IngredientRecipe_Dim (
     ingredient_recipe_id VARCHAR(30) PRIMARY KEY,
 	recipe_id VARCHAR(20),
@@ -16,21 +18,23 @@ CREATE TABLE IngredientRecipe_Dim (
     ing_weight DECIMAL(10, 2),
     ing_meas VARCHAR(10),
     ing_price DECIMAL(10, 2),
-    recipe_quantity DECIMAL(10, 2),
-	-- SCD tracking for price or weight changes
-    Current_Flag_Attr BIT
+    recipe_quantity DECIMAL(10, 2)
+);
+-- SCD Type 1
+CREATE TABLE Recipe_Dim (
+    recipe_id VARCHAR(20) PRIMARY KEY,
 );
 
---3. ITEM DIMENSION TABLE 
+
+DROP TABLE IngredientRecipe_Dim;
+--3. ITEM DIMENSION TABLE (SCD type 1 -> overwrite)
 CREATE TABLE Item_Dim (
 	item_id VARCHAR(10) PRIMARY KEY,
 	item_price DECIMAL(10,2),
 	item_name VARCHAR(50),
 	item_size VARCHAR(10),
 	SKU VARCHAR(50),
-	-- SCD tracking for price changes
-    Current_Flag_Price BIT
-);
+); 
 
 --4. ORDER TYPE DIMENSION TABLE 
 CREATE TABLE Order_Type_Dim (
@@ -88,12 +92,14 @@ CREATE Table Dim_Customer (
 CREATE TABLE Fact_Item_Profit (
 	surrogate_id INT PRIMARY KEY IDENTITY(1,1),
 	item_id VARCHAR(10) FOREIGN KEY REFERENCES Item_Dim(item_id),
-    ingredient_recipe_id VARCHAR(20) FOREIGN KEY REFERENCES IngredientRecipe_Dim(ingredient_recipe_id),
+    recipe_id VARCHAR(20),
 	item_price DECIMAL(10,2),
 	recipe_cost DECIMAL(10,2),
 	profit DECIMAL(10,2)
 );
+SELECT * FROM Fact_Item_Profit;
 
+DROP TABLE Fact_Item_Profit;
 --2. INGREDIENTS USAGE FACT TABLE
 CREATE TABLE Fact_Ingredients_Usage (
     surrogate_id INT PRIMARY KEY IDENTITY(1,1),

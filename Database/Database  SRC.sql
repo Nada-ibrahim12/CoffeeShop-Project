@@ -3,9 +3,9 @@ create database CoffeeShop;
 use  CoffeeShop;
 SELECT * FROM recipes;
 
-UPDATE items
-SET item_price = 1000 ,last_update = GETDATE()
-WHERE  item_id = 'It001';
+UPDATE recipes
+SET quantity = 3 ,last_update = GETDATE()
+WHERE  ing_id = 'ING001' AND recipe_id = 'HDR-CAP-MD';
 
 
 CREATE TABLE staff (
