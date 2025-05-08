@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DESKTOP-CLGUGFV_MSSQLSERVER01.CoffeeShop_DWH"
+  DTS:DTSID="{EF1A89B6-5ECD-474E-B90D-78E72CFABE07}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=DESKTOP-CLGUGFV\MSSQLSERVER01;Initial Catalog=CoffeeShop_DWH;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-coffeeshop project-{EF1A89B6-5ECD-474E-B90D-78E72CFABE07}DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop_DWH;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

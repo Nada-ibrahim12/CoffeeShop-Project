@@ -4,6 +4,7 @@ USE CoffeeShop_DWH;
 ---- DIMENSION TABLES
 
 --1. RECIPE DIMENSION TABLE
+SELECT * FROM IngredientRecipe_Dim;
 
 CREATE TABLE IngredientRecipe_Dim (
     ingredient_recipe_id VARCHAR(20) PRIMARY KEY,
@@ -15,8 +16,6 @@ CREATE TABLE IngredientRecipe_Dim (
     ing_price DECIMAL(10, 2),
     recipe_quantity DECIMAL(10, 2),
 	-- SCD tracking for price or weight changes
-    Start_Date_Attr DATE,
-    End_Date_Attr DATE,
     Current_Flag_Attr BIT
 );
 
@@ -28,8 +27,6 @@ CREATE TABLE Item_Dim (
 	item_size VARCHAR(10),
 	SKU VARCHAR(50),
 	-- SCD tracking for price changes
-	Start_Date_Price DATE,
-    End_Date_Price DATE,
     Current_Flag_Price BIT
 );
 
