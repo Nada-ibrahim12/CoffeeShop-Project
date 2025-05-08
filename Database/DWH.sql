@@ -20,6 +20,7 @@ CREATE TABLE IngredientRecipe_Dim (
     ing_price DECIMAL(10, 2),
     recipe_quantity DECIMAL(10, 2)
 );
+
 -- SCD Type 1
 CREATE TABLE Recipe_Dim (
     recipe_id VARCHAR(20) PRIMARY KEY,
@@ -80,6 +81,16 @@ CREATE TABLE Dim_Date (
     DayName NVARCHAR(20),
     IsWeekend BIT
 );
+select * from Dim_Date;
+INSERT INTO Dim_Date (FullDate, Day, Month, Year, Quarter, MonthName, DayName, IsWeekend)
+VALUES 
+('2024-02-12', 12, 2, 2024, 1, 'January', 'Wednesday', 0),
+('2024-02-13', 13, 2, 2024, 1, 'January', 'Thursday', 0),
+('2024-02-14', 14, 2, 2024, 1, 'January', 'Friday', 0),
+('2024-02-15', 15, 2, 2024, 1, 'January', 'Saturday', 1),
+('2024-02-16', 16, 2, 2024, 1, 'January', 'Sunday', 1),
+('2024-02-17', 17, 2, 2024, 1, 'January', 'Monday', 0),
+('2024-02-18', 18, 2, 2024, 1, 'January', 'Tuesday', 0);
 
 CREATE Table Dim_Customer (
   customer_id INT PRIMARY KEY,
@@ -100,17 +111,20 @@ CREATE TABLE Fact_Item_Profit (
 SELECT * FROM Fact_Item_Profit;
 
 DROP TABLE Fact_Item_Profit;
+
 --2. INGREDIENTS USAGE FACT TABLE
 CREATE TABLE Fact_Ingredients_Usage (
     surrogate_id INT PRIMARY KEY IDENTITY(1,1),
-    ingredient_recipe_id VARCHAR(20) FOREIGN KEY REFERENCES IngredientRecipe_Dim(ingredient_recipe_id),
-    order_id VARCHAR(10), -- degenerate dim
+    ingredient_recipe_id VARCHAR(30) FOREIGN KEY REFERENCES IngredientRecipe_Dim(ingredient_recipe_id),
     item_id VARCHAR(10) FOREIGN KEY REFERENCES Item_Dim(item_id),
     date_id BIGINT FOREIGN KEY REFERENCES Dim_Date(Date_ID),
-    item_quantity INT,
-    ing_quantity_used INT
+    item_quantity INT,  
+    ing_quantity_used INT 
 );
 
+
+select * from Fact_Ingredients_Usage;
+drop table Fact_Ingredients_Usage;
 --3. SALES FACT TABLE
 CREATE TABLE Fact_Sales (
 	surrogate_id INT PRIMARY KEY IDENTITY(1,1),
