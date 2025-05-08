@@ -3,11 +3,13 @@ CREATE DATABASE CoffeeShop_DWH;
 USE CoffeeShop_DWH;
 ---- DIMENSION TABLES
 
+
 --1. RECIPE DIMENSION TABLE
 SELECT * FROM IngredientRecipe_Dim;
 
+DELETE FROM IngredientRecipe_Dim;
 CREATE TABLE IngredientRecipe_Dim (
-    ingredient_recipe_id VARCHAR(20) PRIMARY KEY,
+    ingredient_recipe_id VARCHAR(30) PRIMARY KEY,
 	recipe_id VARCHAR(20),
     ing_id VARCHAR(10),
     ing_name VARCHAR(50),

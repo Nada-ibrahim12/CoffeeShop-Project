@@ -1,6 +1,12 @@
 create database CoffeeShop;
 
 use  CoffeeShop;
+SELECT * FROM recipes;
+
+UPDATE items
+SET item_price = 1000 ,last_update = GETDATE()
+WHERE  item_id = 'It001';
+
 
 CREATE TABLE staff (
     staff_id VARCHAR(10) PRIMARY KEY,

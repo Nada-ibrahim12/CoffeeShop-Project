@@ -11,11 +11,23 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="recipe_stg"
   DTS:PackageType="5"
-  DTS:VersionBuild="15"
-  DTS:VersionGUID="{DBD5A6E1-41C8-4445-AE8C-73B31436E19D}">
+  DTS:VersionBuild="50"
+  DTS:VersionGUID="{84694889-A65B-4075-8EC2-B7E195FED1C5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop_DWH]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3EDF9A63-E349-4F6A-ABCA-A2DAD8D373E5}"
+      DTS:ObjectName="DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop_DWH">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-CLGUGFV\MSSQLSERVER01;Initial Catalog=CoffeeShop_DWH;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-recipe_stg-{3EDF9A63-E349-4F6A-ABCA-A2DAD8D373E5}DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop_DWH;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop]"
       DTS:CreationName="OLEDB"
@@ -78,7 +90,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}"
-          SQLTask:SqlStatementSource="SELECT last_extract_date&#xA;FROM     dbo.Conf_Table&#xA;WHERE  (table_name = 'recipes')"
+          SQLTask:SqlStatementSource="SELECT last_extract_date&#xA;FROM     dbo.Conf_Table&#xA;WHERE table_name IN ('recipes', 'ingerdients');&#xA;"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="Last_Extract_Date"
@@ -461,18 +473,6 @@ where [refTable].[ing_id] = ?</property>
                       externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[create_timestamp]"
                       lineageId="Package\Src to STG\Derived Column.Outputs[Derived Column Output].Columns[create_timeStamp]" />
                     <inputColumn
-                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[last_update]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="last_update"
-                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[src_update_date]"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_update]" />
-                    <inputColumn
-                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[row_id]"
-                      cachedDataType="i4"
-                      cachedName="row_id"
-                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[row_id]"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[row_id]" />
-                    <inputColumn
                       refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[recipe_id]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -488,14 +488,6 @@ where [refTable].[ing_id] = ?</property>
                       cachedName="ing_id"
                       externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ing_id]"
                       lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_id]" />
-                    <inputColumn
-                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[quantity]"
-                      cachedDataType="numeric"
-                      cachedName="quantity"
-                      cachedPrecision="10"
-                      cachedScale="2"
-                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[recipe_quantity]"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[quantity]" />
                     <inputColumn
                       refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ing_name]"
                       cachedCodepage="1252"
@@ -528,6 +520,26 @@ where [refTable].[ing_id] = ?</property>
                       cachedName="ing_meas"
                       externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ing_meas]"
                       lineageId="Package\Src to STG\Lookup.Outputs[Lookup Match Output].Columns[ing_meas]" />
+                    <inputColumn
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[last_update]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="last_update"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[src_update_date]"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_update]" />
+                    <inputColumn
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[row_id]"
+                      cachedDataType="i4"
+                      cachedName="row_id"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[row_id]"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[row_id]" />
+                    <inputColumn
+                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[quantity]"
+                      cachedDataType="numeric"
+                      cachedName="quantity"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[recipe_quantity]"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[quantity]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -677,24 +689,6 @@ WHERE  last_update &gt; '1/1/1950';</property>
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_update]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[last_update]"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_update]"
-                      name="last_update"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[row_id]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[row_id]"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[row_id]"
-                      name="row_id"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[recipe_id]"
                       codePage="1252"
                       dataType="str"
@@ -717,6 +711,24 @@ WHERE  last_update &gt; '1/1/1950';</property>
                       name="ing_id"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
+                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_update]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[last_update]"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_update]"
+                      name="last_update"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[row_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[row_id]"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[row_id]"
+                      name="row_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
                       refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[quantity]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversion"
@@ -731,14 +743,6 @@ WHERE  last_update &gt; '1/1/1950';</property>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[last_update]"
-                      dataType="dbTimeStamp"
-                      name="last_update" />
-                    <externalMetadataColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[row_id]"
-                      dataType="i4"
-                      name="row_id" />
-                    <externalMetadataColumn
                       refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[recipe_id]"
                       codePage="1252"
                       dataType="str"
@@ -750,6 +754,14 @@ WHERE  last_update &gt; '1/1/1950';</property>
                       dataType="str"
                       length="10"
                       name="ing_id" />
+                    <externalMetadataColumn
+                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[last_update]"
+                      dataType="dbTimeStamp"
+                      name="last_update" />
+                    <externalMetadataColumn
+                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[row_id]"
+                      dataType="i4"
+                      name="row_id" />
                     <externalMetadataColumn
                       refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[quantity]"
                       dataType="numeric"
@@ -763,11 +775,6 @@ WHERE  last_update &gt; '1/1/1950';</property>
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
-                    <outputColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[row_id]"
-                      dataType="i4"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[row_id]"
-                      name="row_id" />
                     <outputColumn
                       refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[recipe_id]"
                       codePage="1252"
@@ -783,18 +790,6 @@ WHERE  last_update &gt; '1/1/1950';</property>
                       lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ing_id]"
                       name="ing_id" />
                     <outputColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[quantity]"
-                      dataType="numeric"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[quantity]"
-                      name="quantity"
-                      precision="10"
-                      scale="2" />
-                    <outputColumn
-                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[last_update]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[last_update]"
-                      name="last_update" />
-                    <outputColumn
                       refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
                       lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
@@ -806,6 +801,23 @@ WHERE  last_update &gt; '1/1/1950';</property>
                       lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[row_id]"
+                      dataType="i4"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[row_id]"
+                      name="row_id" />
+                    <outputColumn
+                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[quantity]"
+                      dataType="numeric"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[quantity]"
+                      name="quantity"
+                      precision="10"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[last_update]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[last_update]"
+                      name="last_update" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -828,6 +840,1568 @@ WHERE  last_update &gt; '1/1/1950';</property>
               endId="Package\Src to STG\Lookup.Inputs[Lookup Input]"
               name="OLE DB Source Output"
               startId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\STG to DWH"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{E315C68A-7B6D-43B4-96DF-5A79D71AEEA0}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="STG to DWH"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\STG to DWH\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\STG to DWH\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\STG to DWH\Conditional Split.Inputs[Conditional Split Input].Columns[ing_weight]"
+                      cachedDataType="numeric"
+                      cachedName="ing_weight"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_weight]" />
+                    <inputColumn
+                      refId="Package\STG to DWH\Conditional Split.Inputs[Conditional Split Input].Columns[ing_price]"
+                      cachedDataType="numeric"
+                      cachedName="ing_price"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_price]" />
+                    <inputColumn
+                      refId="Package\STG to DWH\Conditional Split.Inputs[Conditional Split Input].Columns[ing_weight1]"
+                      cachedDataType="numeric"
+                      cachedName="ing_weight"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\STG to DWH\Lookup.Outputs[Lookup Match Output].Columns[ing_weight]" />
+                    <inputColumn
+                      refId="Package\STG to DWH\Conditional Split.Inputs[Conditional Split Input].Columns[ing_price1]"
+                      cachedDataType="numeric"
+                      cachedName="ing_price"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\STG to DWH\Lookup.Outputs[Lookup Match Output].Columns[ing_price]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\STG to DWH\Conditional Split.Outputs[changed records]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="changed records"
+                  synchronousInputId="Package\STG to DWH\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_weight]} != #{Package\STG to DWH\Lookup.Outputs[Lookup Match Output].Columns[ing_weight]} || #{Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_price]} != #{Package\STG to DWH\Lookup.Outputs[Lookup Match Output].Columns[ing_price]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">[OLE DB Source].ing_weight != Lookup.ing_weight || [OLE DB Source].ing_price != Lookup.ing_price</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\STG to DWH\Conditional Split.Outputs[no change]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="no change"
+                  synchronousInputId="Package\STG to DWH\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\STG to DWH\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\STG to DWH\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STG to DWH\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\STG to DWH\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\STG to DWH\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\STG to DWH\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\STG to DWH\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\STG to DWH\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\STG to DWH\Data Conversion.Inputs[Data Conversion Input].Columns[ingredient_recipe_id]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="ingredient_recipe_id"
+                      lineageId="Package\STG to DWH\Derived Column.Outputs[Derived Column Output].Columns[ingredient_recipe_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\STG to DWH\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\STG to DWH\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STG to DWH\Data Conversion.Outputs[Data Conversion Output].Columns[ir_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="30"
+                      lineageId="Package\STG to DWH\Data Conversion.Outputs[Data Conversion Output].Columns[ir_id]"
+                      name="ir_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\STG to DWH\Derived Column.Outputs[Derived Column Output].Columns[ingredient_recipe_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\STG to DWH\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\STG to DWH\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STG to DWH\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\STG to DWH\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\STG to DWH\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\STG to DWH\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\STG to DWH\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\STG to DWH\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\STG to DWH\Derived Column.Inputs[Derived Column Input].Columns[recipe_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="recipe_id"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[recipe_id]" />
+                    <inputColumn
+                      refId="Package\STG to DWH\Derived Column.Inputs[Derived Column Input].Columns[ing_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="ing_id"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\STG to DWH\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\STG to DWH\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STG to DWH\Derived Column.Outputs[Derived Column Output].Columns[ingredient_recipe_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="30"
+                      lineageId="Package\STG to DWH\Derived Column.Outputs[Derived Column Output].Columns[ingredient_recipe_id]"
+                      name="ingredient_recipe_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[recipe_id]} + #{Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_id]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">recipe_id + ing_id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\STG to DWH\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\STG to DWH\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STG to DWH\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\STG to DWH\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\STG to DWH\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\STG to DWH\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\STG to DWH\Derived Column 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\STG to DWH\Derived Column 1.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\STG to DWH\Derived Column 1.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\STG to DWH\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STG to DWH\Derived Column 1.Outputs[Derived Column Output].Columns[Current_Flag_Attr]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\STG to DWH\Derived Column 1.Outputs[Derived Column Output].Columns[Current_Flag_Attr]"
+                      name="Current_Flag_Attr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression"> TRUE </property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression"> TRUE </property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\STG to DWH\Derived Column 1.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\STG to DWH\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STG to DWH\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\STG to DWH\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\STG to DWH\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\STG to DWH\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\STG to DWH\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[IngredientRecipe_Dim]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[IngredientRecipe_Dim]) [refTable]
+where [refTable].[ingredient_recipe_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ingredient_recipe_id" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="recipe_id" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ing_id" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ing_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ing_weight" dataType="DT_NUMERIC" length="0" precision="10" scale="2" codePage="0"/&gt;&lt;referenceColumn name="ing_meas" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ing_price" dataType="DT_NUMERIC" length="0" precision="10" scale="2" codePage="0"/&gt;&lt;referenceColumn name="recipe_quantity" dataType="DT_NUMERIC" length="0" precision="10" scale="2" codePage="0"/&gt;&lt;referenceColumn name="Current_Flag_Attr" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\STG to DWH\Data Conversion.Outputs[Data Conversion Output].Columns[ir_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\STG to DWH\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop_DWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop_DWH]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\STG to DWH\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\STG to DWH\Lookup.Inputs[Lookup Input].Columns[ir_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="ir_id"
+                      lineageId="Package\STG to DWH\Data Conversion.Outputs[Data Conversion Output].Columns[ir_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">ingredient_recipe_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\STG to DWH\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\STG to DWH\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STG to DWH\Lookup.Outputs[Lookup Match Output].Columns[ingredient_recipe_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="30"
+                      lineageId="Package\STG to DWH\Lookup.Outputs[Lookup Match Output].Columns[ingredient_recipe_id]"
+                      name="ingredient_recipe_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ingredient_recipe_id</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\STG to DWH\Lookup.Outputs[Lookup Match Output].Columns[recipe_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="20"
+                      lineageId="Package\STG to DWH\Lookup.Outputs[Lookup Match Output].Columns[recipe_id]"
+                      name="recipe_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">recipe_id</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\STG to DWH\Lookup.Outputs[Lookup Match Output].Columns[ing_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="10"
+                      lineageId="Package\STG to DWH\Lookup.Outputs[Lookup Match Output].Columns[ing_id]"
+                      name="ing_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ing_id</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\STG to DWH\Lookup.Outputs[Lookup Match Output].Columns[ing_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\STG to DWH\Lookup.Outputs[Lookup Match Output].Columns[ing_name]"
+                      name="ing_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ing_name</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\STG to DWH\Lookup.Outputs[Lookup Match Output].Columns[ing_weight]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\STG to DWH\Lookup.Outputs[Lookup Match Output].Columns[ing_weight]"
+                      name="ing_weight"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ing_weight</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\STG to DWH\Lookup.Outputs[Lookup Match Output].Columns[ing_meas]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="10"
+                      lineageId="Package\STG to DWH\Lookup.Outputs[Lookup Match Output].Columns[ing_meas]"
+                      name="ing_meas"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ing_meas</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\STG to DWH\Lookup.Outputs[Lookup Match Output].Columns[ing_price]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\STG to DWH\Lookup.Outputs[Lookup Match Output].Columns[ing_price]"
+                      name="ing_price"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ing_price</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\STG to DWH\Lookup.Outputs[Lookup Match Output].Columns[recipe_quantity]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\STG to DWH\Lookup.Outputs[Lookup Match Output].Columns[recipe_quantity]"
+                      name="recipe_quantity"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">recipe_quantity</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\STG to DWH\Lookup.Outputs[Lookup Match Output].Columns[Current_Flag_Attr]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\STG to DWH\Lookup.Outputs[Lookup Match Output].Columns[Current_Flag_Attr]"
+                      name="Current_Flag_Attr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Current_Flag_Attr</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\STG to DWH\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\STG to DWH\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\STG to DWH\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\STG to DWH\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STG to DWH\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\STG to DWH\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\STG to DWH\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\STG to DWH\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\STG to DWH\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE IngredientRecipe_Dim
+SET Current_Flag_Attr = 0
+WHERE ingredient_recipe_id = ? AND Current_Flag_Attr = 1
+</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\STG to DWH\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop_DWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop_DWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\STG to DWH\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\STG to DWH\OLE DB Command.Inputs[OLE DB Command Input].Columns[ir_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="ir_id"
+                      externalMetadataColumnId="Package\STG to DWH\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\STG to DWH\Data Conversion.Outputs[Data Conversion Output].Columns[ir_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\STG to DWH\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\STG to DWH\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\STG to DWH\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\STG to DWH\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\STG to DWH\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STG to DWH\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\STG to DWH\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\STG to DWH\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\STG to DWH\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\STG to DWH\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[IngredientRecipe_Dim]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\STG to DWH\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop_DWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop_DWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[recipe_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="recipe_id"
+                      externalMetadataColumnId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[recipe_id]"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[recipe_id]" />
+                    <inputColumn
+                      refId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ing_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="ing_id"
+                      externalMetadataColumnId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ing_id]"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_id]" />
+                    <inputColumn
+                      refId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ing_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ing_name"
+                      externalMetadataColumnId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ing_name]"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_name]" />
+                    <inputColumn
+                      refId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ing_weight]"
+                      cachedDataType="numeric"
+                      cachedName="ing_weight"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ing_weight]"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_weight]" />
+                    <inputColumn
+                      refId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ing_meas]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="ing_meas"
+                      externalMetadataColumnId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ing_meas]"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_meas]" />
+                    <inputColumn
+                      refId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ing_price]"
+                      cachedDataType="numeric"
+                      cachedName="ing_price"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ing_price]"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_price]" />
+                    <inputColumn
+                      refId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[recipe_quantity]"
+                      cachedDataType="numeric"
+                      cachedName="recipe_quantity"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[recipe_quantity]"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[recipe_quantity]" />
+                    <inputColumn
+                      refId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Current_Flag_Attr]"
+                      cachedDataType="bool"
+                      cachedName="Current_Flag_Attr"
+                      externalMetadataColumnId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Current_Flag_Attr]"
+                      lineageId="Package\STG to DWH\Derived Column 1.Outputs[Derived Column Output].Columns[Current_Flag_Attr]" />
+                    <inputColumn
+                      refId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ir_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="ir_id"
+                      externalMetadataColumnId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ingredient_recipe_id]"
+                      lineageId="Package\STG to DWH\Data Conversion.Outputs[Data Conversion Output].Columns[ir_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ingredient_recipe_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="ingredient_recipe_id" />
+                    <externalMetadataColumn
+                      refId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[recipe_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="recipe_id" />
+                    <externalMetadataColumn
+                      refId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ing_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="ing_id" />
+                    <externalMetadataColumn
+                      refId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ing_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ing_name" />
+                    <externalMetadataColumn
+                      refId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ing_weight]"
+                      dataType="numeric"
+                      name="ing_weight"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ing_meas]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="ing_meas" />
+                    <externalMetadataColumn
+                      refId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ing_price]"
+                      dataType="numeric"
+                      name="ing_price"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[recipe_quantity]"
+                      dataType="numeric"
+                      name="recipe_quantity"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Current_Flag_Attr]"
+                      dataType="bool"
+                      name="Current_Flag_Attr" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\STG to DWH\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STG to DWH\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\STG to DWH\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\STG to DWH\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\STG to DWH\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\STG to DWH\OLE DB Destination 1"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination 1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[IngredientRecipe_Dim]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\STG to DWH\OLE DB Destination 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop_DWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop_DWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[recipe_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="recipe_id"
+                      externalMetadataColumnId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[recipe_id]"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[recipe_id]" />
+                    <inputColumn
+                      refId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[ing_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="ing_id"
+                      externalMetadataColumnId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ing_id]"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_id]" />
+                    <inputColumn
+                      refId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[ing_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ing_name"
+                      externalMetadataColumnId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ing_name]"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_name]" />
+                    <inputColumn
+                      refId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[ing_weight]"
+                      cachedDataType="numeric"
+                      cachedName="ing_weight"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ing_weight]"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_weight]" />
+                    <inputColumn
+                      refId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[ing_meas]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="ing_meas"
+                      externalMetadataColumnId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ing_meas]"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_meas]" />
+                    <inputColumn
+                      refId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[ing_price]"
+                      cachedDataType="numeric"
+                      cachedName="ing_price"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ing_price]"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_price]" />
+                    <inputColumn
+                      refId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[recipe_quantity]"
+                      cachedDataType="numeric"
+                      cachedName="recipe_quantity"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[recipe_quantity]"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[recipe_quantity]" />
+                    <inputColumn
+                      refId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Current_Flag_Attr]"
+                      cachedDataType="bool"
+                      cachedName="Current_Flag_Attr"
+                      externalMetadataColumnId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Current_Flag_Attr]"
+                      lineageId="Package\STG to DWH\Lookup.Outputs[Lookup Match Output].Columns[Current_Flag_Attr]" />
+                    <inputColumn
+                      refId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[ir_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="ir_id"
+                      externalMetadataColumnId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ingredient_recipe_id]"
+                      lineageId="Package\STG to DWH\Data Conversion.Outputs[Data Conversion Output].Columns[ir_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ingredient_recipe_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="ingredient_recipe_id" />
+                    <externalMetadataColumn
+                      refId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[recipe_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="recipe_id" />
+                    <externalMetadataColumn
+                      refId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ing_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="ing_id" />
+                    <externalMetadataColumn
+                      refId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ing_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ing_name" />
+                    <externalMetadataColumn
+                      refId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ing_weight]"
+                      dataType="numeric"
+                      name="ing_weight"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ing_meas]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="ing_meas" />
+                    <externalMetadataColumn
+                      refId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ing_price]"
+                      dataType="numeric"
+                      name="ing_price"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[recipe_quantity]"
+                      dataType="numeric"
+                      name="recipe_quantity"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Current_Flag_Attr]"
+                      dataType="bool"
+                      name="Current_Flag_Attr" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\STG to DWH\OLE DB Destination 1.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STG to DWH\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\STG to DWH\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\STG to DWH\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\STG to DWH\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\STG to DWH\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[stg_recipes]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\STG to DWH\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-CLGUGFV_MSSQLSERVER01.CoffeeShop_STG]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[row_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[row_id]"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[row_id]"
+                      name="row_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[recipe_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[recipe_id]"
+                      length="20"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[recipe_id]"
+                      name="recipe_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ing_id]"
+                      length="10"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_id]"
+                      name="ing_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ing_name]"
+                      length="50"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_name]"
+                      name="ing_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_weight]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ing_weight]"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_weight]"
+                      name="ing_weight"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_meas]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ing_meas]"
+                      length="10"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_meas]"
+                      name="ing_meas"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_price]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ing_price]"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[ing_price]"
+                      name="ing_price"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[recipe_quantity]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[recipe_quantity]"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[recipe_quantity]"
+                      name="recipe_quantity"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[src_update_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[src_update_date]"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[src_update_date]"
+                      name="src_update_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[create_timestamp]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[create_timestamp]"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].Columns[create_timestamp]"
+                      name="create_timestamp"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[row_id]"
+                      dataType="i4"
+                      name="row_id" />
+                    <externalMetadataColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[recipe_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="recipe_id" />
+                    <externalMetadataColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ing_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="ing_id" />
+                    <externalMetadataColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ing_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ing_name" />
+                    <externalMetadataColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ing_weight]"
+                      dataType="numeric"
+                      name="ing_weight"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ing_meas]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="ing_meas" />
+                    <externalMetadataColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ing_price]"
+                      dataType="numeric"
+                      name="ing_price"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[recipe_quantity]"
+                      dataType="numeric"
+                      name="recipe_quantity"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[src_update_date]"
+                      dataType="dbTimeStamp"
+                      name="src_update_date" />
+                    <externalMetadataColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[create_timestamp]"
+                      dataType="dbTimeStamp"
+                      name="create_timestamp" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[row_id]"
+                      dataType="i4"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[row_id]"
+                      name="row_id" />
+                    <outputColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[recipe_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[recipe_id]"
+                      name="recipe_id" />
+                    <outputColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ing_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ing_id]"
+                      name="ing_id" />
+                    <outputColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ing_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ing_name]"
+                      name="ing_name" />
+                    <outputColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ing_weight]"
+                      dataType="numeric"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ing_weight]"
+                      name="ing_weight"
+                      precision="10"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ing_meas]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ing_meas]"
+                      name="ing_meas" />
+                    <outputColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ing_price]"
+                      dataType="numeric"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ing_price]"
+                      name="ing_price"
+                      precision="10"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[recipe_quantity]"
+                      dataType="numeric"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[recipe_quantity]"
+                      name="recipe_quantity"
+                      precision="10"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[src_update_date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[src_update_date]"
+                      name="src_update_date" />
+                    <outputColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[create_timestamp]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[create_timestamp]"
+                      name="create_timestamp" />
+                    <outputColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\STG to DWH.Paths[changed records]"
+              endId="Package\STG to DWH\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="changed records"
+              startId="Package\STG to DWH\Conditional Split.Outputs[changed records]" />
+            <path
+              refId="Package\STG to DWH.Paths[Data Conversion Output]"
+              endId="Package\STG to DWH\Lookup.Inputs[Lookup Input]"
+              name="Data Conversion Output"
+              startId="Package\STG to DWH\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\STG to DWH.Paths[Derived Column Output]"
+              endId="Package\STG to DWH\Data Conversion.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\STG to DWH\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\STG to DWH.Paths[Derived Column Output1]"
+              endId="Package\STG to DWH\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\STG to DWH\Derived Column 1.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\STG to DWH.Paths[Lookup Match Output]"
+              endId="Package\STG to DWH\Conditional Split.Inputs[Conditional Split Input]"
+              name="Lookup Match Output"
+              startId="Package\STG to DWH\Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\STG to DWH.Paths[Lookup No Match Output]"
+              endId="Package\STG to DWH\Derived Column 1.Inputs[Derived Column Input]"
+              name="Lookup No Match Output"
+              startId="Package\STG to DWH\Lookup.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\STG to DWH.Paths[OLE DB Command Output]"
+              endId="Package\STG to DWH\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
+              name="OLE DB Command Output"
+              startId="Package\STG to DWH\OLE DB Command.Outputs[OLE DB Command Output]" />
+            <path
+              refId="Package\STG to DWH.Paths[OLE DB Source Output]"
+              endId="Package\STG to DWH\Derived Column.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\STG to DWH\OLE DB Source.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -863,7 +2437,7 @@ WHERE  last_update &gt; '1/1/1950';</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}"
-          SQLTask:SqlStatementSource="UPDATE Conf_Table&#xA;SET &#xA;last_extract_date = GETDATE()&#xA;WHERE table_name = 'recipes';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE Conf_Table&#xA;SET last_extract_date = GETDATE()&#xA;WHERE table_name IN ('recipes', 'ingredients');&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -892,6 +2466,14 @@ WHERE  last_update &gt; '1/1/1950';</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
       DTS:To="Package\Update conf_table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{8D2C75E5-4490-47BB-906D-9EF0A2762CC8}"
+      DTS:From="Package\Src to STG"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\STG to DWH" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -904,7 +2486,7 @@ WHERE  last_update &gt; '1/1/1950';</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="152,41.6"
           Id="Package\ExtractLastDate"
@@ -913,6 +2495,10 @@ WHERE  last_update &gt; '1/1/1950';</property>
           Size="129.6,41.6"
           Id="Package\Src to STG"
           TopLeft="70.833336019682,210.999999367198" />
+        <NodeLayout
+          Size="139.2,41.6"
+          Id="Package\STG to DWH"
+          TopLeft="284.999984428287,206.866665322714" />
         <NodeLayout
           Size="172,41.6"
           Id="Package\truncate recipes_stg"
@@ -999,6 +2585,28 @@ WHERE  last_update &gt; '1/1/1950';</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="200.433336019682,229.733332344956">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="84.5666484086051,0"
+              Start="0,0"
+              End="77.0666484086051,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="77.0666484086051,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1008,14 +2616,6 @@ WHERE  last_update &gt; '1/1/1950';</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="152,41.6"
-          Id="Package\Src to STG\OLE DB Source"
-          TopLeft="50.4999975413082,65.2999995841583" />
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Src to STG\OLE DB Destination"
-          TopLeft="450.499977325401,220.099998716315" />
-        <NodeLayout
           Size="112.8,41.6"
           Id="Package\Src to STG\Lookup"
           TopLeft="224.666654691929,110.366665937437" />
@@ -1023,6 +2623,14 @@ WHERE  last_update &gt; '1/1/1950';</property>
           Size="152.8,41.6"
           Id="Package\Src to STG\Derived Column"
           TopLeft="318.833316213555,158.033332272635" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Src to STG\OLE DB Source"
+          TopLeft="50.4999975413082,65.2999995841583" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Src to STG\OLE DB Destination"
+          TopLeft="450.499977325401,220.099998716315" />
         <EdgeLayout
           Id="Package\Src to STG.Paths[OLE DB Source Output]"
           TopLeft="202.499997541308,86.0999995841583">
@@ -1113,6 +2721,29 @@ WHERE  last_update &gt; '1/1/1950';</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\Src to STG\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[ingredients]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Src to STG\OLE DB Source">
     <Properties>
       <Property>
@@ -1133,8 +2764,259 @@ WHERE  last_update &gt; '1/1/1950';</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\STG to DWH">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\STG to DWH\OLE DB Source"
+          TopLeft="101.666661111845,48.5333329958386" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\STG to DWH\Derived Column"
+          TopLeft="103.333327687449,127.399999114077" />
+        <EdgeLayout
+          Id="Package\STG to DWH.Paths[OLE DB Source Output]"
+          TopLeft="178.699994399647,90.1333329958386">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.2666661182383"
+              Start="0,0"
+              End="0,29.7666661182383">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.7666661182383" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\STG to DWH\Data Conversion"
+          TopLeft="96.6666613850331,215.799998499354" />
+        <EdgeLayout
+          Id="Package\STG to DWH.Paths[Derived Column Output]"
+          TopLeft="177.199994536241,168.999999114077">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.7999993852769"
+              Start="0,0"
+              End="0,39.2999993852769">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.2999993852769" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\STG to DWH\Lookup"
+          TopLeft="124.166659882499,300.733331242071" />
+        <EdgeLayout
+          Id="Package\STG to DWH.Paths[Data Conversion Output]"
+          TopLeft="177.616660633766,257.399998499354">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.3333327427175"
+              Start="0,0"
+              End="0,35.8333327427175">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.8333327427175" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\STG to DWH\OLE DB Destination"
+          TopLeft="89.1666617948149,463.666663442387" />
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\STG to DWH\Derived Column 1"
+          TopLeft="100.833327824043,380.466664020949" />
+        <EdgeLayout
+          Id="Package\STG to DWH.Paths[Lookup No Match Output]"
+          TopLeft="181.099993853271,342.333331242071">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.1333327788776"
+              Start="0,0"
+              End="0,30.6333327788776">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.6333327788776" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,9.51197888943878,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\STG to DWH.Paths[Derived Column Output1]"
+          TopLeft="178.199994809429,422.066664020949">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.5999994214377"
+              Start="0,0"
+              End="0,34.0999994214377">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.0999994214377" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\STG to DWH\Conditional Split"
+          TopLeft="319.16664922817,300.733331242071" />
+        <EdgeLayout
+          Id="Package\STG to DWH.Paths[Lookup Match Output]"
+          TopLeft="236.966659882499,321.533331242071">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="82.1999893456702,0"
+              Start="0,0"
+              End="74.6999893456702,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="74.6999893456702,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-10.8413920459149,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\STG to DWH\OLE DB Command"
+          TopLeft="509.99997213483,204.533331911034" />
+        <EdgeLayout
+          Id="Package\STG to DWH.Paths[changed records]"
+          TopLeft="395.96664922817,300.733331242071">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="197.63332290666,-54.5999993310372"
+              Start="0,0"
+              End="197.63332290666,-47.0999993310372">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-23.2999996655186" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-23.2999996655186"
+                    Point2="0,-27.2999996655186"
+                    Point3="4,-27.2999996655186" />
+                  <mssgle:LineSegment
+                    End="193.63332290666,-27.2999996655186" />
+                  <mssgle:CubicBezierSegment
+                    Point1="193.63332290666,-27.2999996655186"
+                    Point2="197.63332290666,-27.2999996655186"
+                    Point3="197.63332290666,-31.2999996655186" />
+                  <mssgle:LineSegment
+                    End="197.63332290666,-47.0999993310372" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="61.57447395333,-22.2999996655186,74.484375,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\STG to DWH\OLE DB Destination 1"
+          TopLeft="737.099965714913,201.266665973597" />
+        <EdgeLayout
+          Id="Package\STG to DWH.Paths[OLE DB Command Output]"
+          TopLeft="677.19997213483,223.699998942316">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="59.8999935800832,0"
+              Start="0,0"
+              End="52.3999935800832,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="52.3999935800832,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Src to STG\Lookup">
+    design-time-name="Package\STG to DWH\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\STG to DWH\Lookup">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -1144,7 +3026,7 @@ WHERE  last_update &gt; '1/1/1950';</property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[ingredients]</Value>
+          type="q3:string">[dbo].[IngredientRecipe_Dim]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -1153,6 +3035,32 @@ WHERE  last_update &gt; '1/1/1950';</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\STG to DWH\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\STG to DWH\OLE DB Destination 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

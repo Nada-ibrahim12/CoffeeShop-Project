@@ -64,7 +64,7 @@ CREATE TABLE stg_shift (
     start_time TIME,
     end_time TIME,
 	src_update_date  datetime,
-  create_timestamp	datetime
+    create_timestamp	datetime
 );
 
 
@@ -84,6 +84,8 @@ CREATE TABLE Conf_Table
   last_extract_date	 datetime
 );
 
+DELETE FROM Conf_Table;
+
 INSERT INTO Conf_Table VALUES
 	('orders', '1950-01-01'),
 	('items', '1950-01-01'),
@@ -93,3 +95,7 @@ INSERT INTO Conf_Table VALUES
 	('staff', '1950-01-01'),
 	('ingredients', '1950-01-01'),
 	('recipes', '1950-01-01');
+
+
+	SELECT * FROM stg_recipes;
+	SELECT * FROM Conf_Table;
