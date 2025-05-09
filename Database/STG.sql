@@ -1,7 +1,8 @@
 create DATABASE CoffeeShop_STG;
 
 USE CoffeeShop_STG;
-
+alter table stg_staff
+drop column 
 
 CREATE TABLE stg_staff (
     staff_id VARCHAR(10),
