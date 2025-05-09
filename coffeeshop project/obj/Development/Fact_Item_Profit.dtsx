@@ -11,10 +11,48 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Fact_Item_Profit"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{A093443A-DA46-4D31-BB00-C1CC28FDD81A}">
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{3AD8EB72-2E89-4F2E-A69D-F01FCB4A2969}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop_DWH]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{58DA3D87-AAAF-439B-BCAD-C95A3D828558}"
+      DTS:ObjectName="MENNA\SQLEXPRESS.CoffeeShop_DWH">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=MENNA\SQLEXPRESS;Initial Catalog=CoffeeShop_DWH;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Fact_Item_Profit-{58DA3D87-AAAF-439B-BCAD-C95A3D828558}MENNA\SQLEXPRESS.CoffeeShop_DWH;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop_DWH 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{98A56CB3-2033-452D-9193-02B74D2EE732}"
+      DTS:ObjectName="MENNA\SQLEXPRESS.CoffeeShop_DWH 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=MENNA\SQLEXPRESS;Initial Catalog=CoffeeShop_DWH;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Fact_Item_Profit-{98A56CB3-2033-452D-9193-02B74D2EE732}MENNA\SQLEXPRESS.CoffeeShop_DWH 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop_STG]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{758477DF-68BB-45FC-8C75-2DE3424AD094}"
+      DTS:ObjectName="MENNA\SQLEXPRESS.CoffeeShop_STG">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=MENNA\SQLEXPRESS;Initial Catalog=CoffeeShop_STG;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Fact_Item_Profit-{758477DF-68BB-45FC-8C75-2DE3424AD094}MENNA\SQLEXPRESS.CoffeeShop_STG;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -551,7 +589,7 @@
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
+                  name="FastLoadKeepNulls">true</property>
                 <property
                   dataType="System.String"
                   description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
@@ -564,8 +602,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="{EF1A89B6-5ECD-474E-B90D-78E72CFABE07}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-CLGUGFV_MSSQLSERVER01.CoffeeShop_DWH]"
+                  connectionManagerID="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop_DWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop_DWH]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -734,8 +772,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="{EF1A89B6-5ECD-474E-B90D-78E72CFABE07}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-CLGUGFV_MSSQLSERVER01.CoffeeShop_DWH]"
+                  connectionManagerID="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop_DWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop_DWH]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -942,8 +980,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\OLE DB Source 1.Connections[OleDbConnection]"
-                  connectionManagerID="{EF1A89B6-5ECD-474E-B90D-78E72CFABE07}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-CLGUGFV_MSSQLSERVER01.CoffeeShop_DWH]"
+                  connectionManagerID="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop_DWH 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop_DWH 1]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1040,6 +1078,15 @@
                       precision="10"
                       scale="2"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Current_Flag_Attr]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Current_Flag_Attr]"
+                      lineageId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Current_Flag_Attr]"
+                      name="Current_Flag_Attr"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1091,6 +1138,10 @@
                       name="recipe_quantity"
                       precision="10"
                       scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Current_Flag_Attr]"
+                      dataType="bool"
+                      name="Current_Flag_Attr" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -1154,6 +1205,11 @@
                       name="recipe_quantity"
                       precision="10"
                       scale="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Current_Flag_Attr]"
+                      dataType="bool"
+                      lineageId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Current_Flag_Attr]"
+                      name="Current_Flag_Attr" />
                     <outputColumn
                       refId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -1553,9 +1609,17 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\Data Flow Task\Merge Join"
-          TopLeft="105.833327550855,235.733331694073" />
+          Size="97.6,41.6"
+          Id="Package\Data Flow Task\Sort"
+          TopLeft="118.333326867885,145.599998987516" />
+        <NodeLayout
+          Size="160.8,41.6"
+          Id="Package\Data Flow Task\OLE DB Source 1"
+          TopLeft="328.333315393992,60.6666662447982" />
+        <NodeLayout
+          Size="126.4,41.6"
+          Id="Package\Data Flow Task\Aggregate"
+          TopLeft="354.999980603656,232.266665051513" />
         <NodeLayout
           Size="152,41.6"
           Id="Package\Data Flow Task\OLE DB Source"
@@ -1565,21 +1629,77 @@
           Id="Package\Data Flow Task\Sort 1"
           TopLeft="243.333320038186,327.59999772191" />
         <NodeLayout
-          Size="97.6,41.6"
-          Id="Package\Data Flow Task\Sort"
-          TopLeft="118.333326867885,145.599998987516" />
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Data Flow Task\OLE DB Destination"
-          TopLeft="70.8333294631705,462.799996781746" />
+          Size="129.6,41.6"
+          Id="Package\Data Flow Task\Merge Join"
+          TopLeft="105.833327550855,235.733331694073" />
         <NodeLayout
           Size="152.8,41.6"
           Id="Package\Data Flow Task\Derived Column"
           TopLeft="339.99998142322,154.266665593916" />
         <NodeLayout
-          Size="160.8,41.6"
-          Id="Package\Data Flow Task\OLE DB Source 1"
-          TopLeft="328.333315393992,60.6666662447982" />
+          Size="161.6,41.6"
+          Id="Package\Data Flow Task\Derived Column 1"
+          TopLeft="73.3666637071306,377.866664039029" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Data Flow Task\OLE DB Destination"
+          TopLeft="70.8333294631705,462.799996781746" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output1]"
+          TopLeft="280.133320038186,327.59999772191">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-109.499992487331,-50.2666660278368"
+              Start="0,0"
+              End="-109.499992487331,-42.7666660278368">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-16.553481220271" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-16.553481220271"
+                    Point2="0,-20.553481220271"
+                    Point3="-4,-20.553481220271" />
+                  <mssgle:LineSegment
+                    End="-105.499992487331,-20.553481220271" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-105.499992487331,-20.553481220271"
+                    Point2="-109.499992487331,-20.553481220271"
+                    Point3="-109.499992487331,-24.553481220271" />
+                  <mssgle:LineSegment
+                    End="-109.499992487331,-42.7666660278368" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output]"
+          TopLeft="168.88332720937,187.199998987516">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48.5333327065574"
+              Start="0,0"
+              End="0,41.0333327065574">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.0333327065574" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output1]"
           TopLeft="169.066660838657,102.266666244798">
@@ -1624,10 +1744,50 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="126.4,41.6"
-          Id="Package\Data Flow Task\Aggregate"
-          TopLeft="354.999980603656,232.266665051513" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Merge Join Output]"
+          TopLeft="152.26666229566,277.333331694073">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,100.533332344956"
+              Start="0,0"
+              End="0,93.0333323449556">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,93.0333323449556" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output1]"
+          TopLeft="155.299996585151,419.466664039029">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.3333327427173"
+              Start="0,0"
+              End="0,35.8333327427173">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.8333327427173" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Derived Column Output]"
           TopLeft="417.299981013438,195.866665593916">
@@ -1684,113 +1844,22 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Sort Output]"
-          TopLeft="168.88332720937,187.199998987516">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,48.5333327065574"
-              Start="0,0"
-              End="0,41.0333327065574">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,41.0333327065574" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Sort Output1]"
-          TopLeft="280.133320038186,327.59999772191">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-109.499992487331,-50.2666660278368"
-              Start="0,0"
-              End="-109.499992487331,-42.7666660278368">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-16.553481220271" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-16.553481220271"
-                    Point2="0,-20.553481220271"
-                    Point3="-4,-20.553481220271" />
-                  <mssgle:LineSegment
-                    End="-105.499992487331,-20.553481220271" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-105.499992487331,-20.553481220271"
-                    Point2="-109.499992487331,-20.553481220271"
-                    Point3="-109.499992487331,-24.553481220271" />
-                  <mssgle:LineSegment
-                    End="-109.499992487331,-42.7666660278368" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="161.6,41.6"
-          Id="Package\Data Flow Task\Derived Column 1"
-          TopLeft="73.3666637071306,377.866664039029" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Merge Join Output]"
-          TopLeft="152.26666229566,277.333331694073">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,100.533332344956"
-              Start="0,0"
-              End="0,93.0333323449556">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,93.0333323449556" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Derived Column Output1]"
-          TopLeft="155.299996585151,419.466664039029">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,43.3333327427173"
-              Start="0,0"
-              End="0,35.8333327427173">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.8333327427173" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Source 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\OLE DB Source">
     <Properties>
@@ -1806,19 +1875,6 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Source 1">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
