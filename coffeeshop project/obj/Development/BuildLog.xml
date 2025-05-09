@@ -2,23 +2,39 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>coffeeshop project</Name>
+<<<<<<< Updated upstream
     <LastWriteTime>2025-05-09T19:24:56.3135812Z</LastWriteTime>
+=======
+    <LastWriteTime>2025-05-09T19:46:57.3408252Z</LastWriteTime>
+>>>>>>> Stashed changes
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>orders_stg.dtsx</Name>
+<<<<<<< Updated upstream
       <LastWriteTime>2025-05-09T17:06:57.5467774Z</LastWriteTime>
+=======
+      <LastWriteTime>2025-05-09T14:39:20.9025856Z</LastWriteTime>
+>>>>>>> Stashed changes
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>items_stg.dtsx</Name>
+<<<<<<< Updated upstream
       <LastWriteTime>2025-05-09T17:06:57.237955Z</LastWriteTime>
+=======
+      <LastWriteTime>2025-05-09T14:39:20.6954696Z</LastWriteTime>
+>>>>>>> Stashed changes
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>recipe_stg.dtsx</Name>
+<<<<<<< Updated upstream
       <LastWriteTime>2025-05-09T17:06:57.589753Z</LastWriteTime>
+=======
+      <LastWriteTime>2025-05-09T15:49:45.6442664Z</LastWriteTime>
+>>>>>>> Stashed changes
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -43,17 +59,39 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Fact_Item_Profit.dtsx</Name>
+<<<<<<< Updated upstream
       <LastWriteTime>2025-05-09T17:06:57.1160271Z</LastWriteTime>
+=======
+      <LastWriteTime>2025-05-09T15:01:55.6639735Z</LastWriteTime>
+>>>>>>> Stashed changes
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Fact_Ingredients_Usage.dtsx</Name>
+<<<<<<< Updated upstream
       <LastWriteTime>2025-05-09T17:06:57.0890408Z</LastWriteTime>
+=======
+      <LastWriteTime>2025-05-09T14:40:29.3759424Z</LastWriteTime>
+>>>>>>> Stashed changes
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Fact_Sales.dtsx</Name>
+<<<<<<< Updated upstream
       <LastWriteTime>2025-05-09T17:06:57.1919812Z</LastWriteTime>
+=======
+      <LastWriteTime>2025-05-09T14:49:21.7131625Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>new recipe and ing.dtsx</Name>
+      <LastWriteTime>2025-05-09T19:30:50.33174Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>FACT_RECIPE.dtsx</Name>
+      <LastWriteTime>2025-05-09T19:54:04.7141532Z</LastWriteTime>
+>>>>>>> Stashed changes
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

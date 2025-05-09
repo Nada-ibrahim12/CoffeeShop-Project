@@ -27,11 +27,20 @@ CREATE TABLE Item_Dim (
 	item_price DECIMAL(10,2),
 	item_name VARCHAR(50),
 	item_size VARCHAR(10),
-	SKU VARCHAR(50),
-	-- SCD tracking for price changes
-    Current_Flag_Price BIT
+	SKU VARCHAR(50)
 );
 
+CREATE TABLE Fact_Recipe (
+    recipe_id VARCHAR(20),
+    item_id VARCHAR(10),
+	item_price DECIMAL(10,2),
+    total_cost DECIMAL(10,2), 
+	profit DECIMAL(10,2), 
+    FOREIGN KEY (recipe_id) REFERENCES Recipe_Dim(recipe_id),
+    FOREIGN KEY (item_id) REFERENCES Item_Dim(item_id),
+);
+SELECT * FROM Fact_Recipe;
+DROP TABLE Fact_Recipe;
 --4. ORDER TYPE DIMENSION TABLE 
 CREATE TABLE Order_Type_Dim (
 	order_type_id VARCHAR(10) PRIMARY KEY,

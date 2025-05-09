@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="recipe_stg"
   DTS:PackageType="5"
-  DTS:VersionBuild="70"
-  DTS:VersionGUID="{94B48D69-6B79-4EAF-82F6-B451AEAC6968}">
+  DTS:VersionBuild="73"
+  DTS:VersionGUID="{9640EBF3-D234-4853-BB54-DCE84AFC853E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -123,102 +123,6 @@
         <pipeline
           version="1">
           <components>
-            <component
-              refId="Package\Src to STG\Aggregate"
-              componentClassID="Microsoft.Aggregate"
-              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
-              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
-              name="Aggregate"
-              version="3">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
-                  name="KeyScale"
-                  typeConverter="KeyScaleType">0</property>
-                <property
-                  dataType="System.Null"
-                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
-                  name="Keys" />
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
-                  name="CountDistinctScale"
-                  typeConverter="KeyScaleType">0</property>
-                <property
-                  dataType="System.Null"
-                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
-                  name="CountDistinctKeys" />
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
-                  name="AutoExtendFactor">25</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\Src to STG\Aggregate.Inputs[Aggregate Input 1]"
-                  name="Aggregate Input 1">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Src to STG\Aggregate.Inputs[Aggregate Input 1].Columns[recipe_id]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="20"
-                      cachedName="recipe_id"
-                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[recipe_id]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Src to STG\Aggregate.Outputs[Aggregate Output 1]"
-                  name="Aggregate Output 1">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
-                      name="KeyScale"
-                      typeConverter="KeyScaleType">0</property>
-                    <property
-                      dataType="System.Null"
-                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
-                      name="Keys" />
-                  </properties>
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Src to STG\Aggregate.Outputs[Aggregate Output 1].Columns[recipe_id]"
-                      codePage="1252"
-                      dataType="str"
-                      length="20"
-                      lineageId="Package\Src to STG\Aggregate.Outputs[Aggregate Output 1].Columns[recipe_id]"
-                      name="recipe_id">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[recipe_id]}</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the type of aggregation."
-                          name="AggregationType"
-                          typeConverter="AggregationType">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
-                          name="IsBig">1</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the string comparison options."
-                          name="AggregationComparisonFlags">0</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
             <component
               refId="Package\Src to STG\Conditional Split"
               componentClassID="Microsoft.ConditionalSplit"
@@ -691,10 +595,10 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Src to STG\Multicast.Outputs[Multicast Output 2]"
+                  refId="Package\Src to STG\Multicast.Outputs[Multicast Output 4]"
                   dangling="true"
                   deleteOutputOnPathDetached="true"
-                  name="Multicast Output 2"
+                  name="Multicast Output 4"
                   synchronousInputId="Package\Src to STG\Multicast.Inputs[Multicast Input 1]">
                   <externalMetadataColumns />
                 </output>
@@ -703,130 +607,6 @@
                   deleteOutputOnPathDetached="true"
                   name="Multicast Output 1"
                   synchronousInputId="Package\Src to STG\Multicast.Inputs[Multicast Input 1]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Src to STG\Multicast.Outputs[Multicast Output 3]"
-                  deleteOutputOnPathDetached="true"
-                  name="Multicast Output 3"
-                  synchronousInputId="Package\Src to STG\Multicast.Inputs[Multicast Input 1]">
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Src to STG\OLE DB Destination"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="OLE DB Destination"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Recipe_Dim]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Src to STG\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop_DWH]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-CLGUGFV\MSSQLSERVER01.CoffeeShop_DWH]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[recipe_id]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="20"
-                      cachedName="recipe_id"
-                      externalMetadataColumnId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[recipe_id]"
-                      lineageId="Package\Src to STG\Aggregate.Outputs[Aggregate Output 1].Columns[recipe_id]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[recipe_id]"
-                      codePage="1252"
-                      dataType="str"
-                      length="20"
-                      name="recipe_id" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Src to STG\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Src to STG\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Src to STG\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Src to STG\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Src to STG\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
                   <externalMetadataColumns />
                 </output>
               </outputs>
@@ -1916,11 +1696,6 @@ WHERE  last_update &gt; '1/1/1950';</property>
           </components>
           <paths>
             <path
-              refId="Package\Src to STG.Paths[Aggregate Output 1]"
-              endId="Package\Src to STG\OLE DB Destination.Inputs[OLE DB Destination Input]"
-              name="Aggregate Output 1"
-              startId="Package\Src to STG\Aggregate.Outputs[Aggregate Output 1]" />
-            <path
               refId="Package\Src to STG.Paths[changed]"
               endId="Package\Src to STG\Derived Column.Inputs[Derived Column Input]"
               name="changed"
@@ -1940,11 +1715,6 @@ WHERE  last_update &gt; '1/1/1950';</property>
               endId="Package\Src to STG\Sort.Inputs[Sort Input]"
               name="Multicast Output 1"
               startId="Package\Src to STG\Multicast.Outputs[Multicast Output 1]" />
-            <path
-              refId="Package\Src to STG.Paths[Multicast Output 3]"
-              endId="Package\Src to STG\Aggregate.Inputs[Aggregate Input 1]"
-              name="Multicast Output 3"
-              startId="Package\Src to STG\Multicast.Outputs[Multicast Output 3]" />
             <path
               refId="Package\Src to STG.Paths[OLE DB Source Output]"
               endId="Package\Src to STG\Sort 1.Inputs[Sort Input]"
@@ -3596,137 +3366,55 @@ WHERE ingredient_recipe_id = ?
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="152,41.6"
-          Id="Package\Src to STG\OLE DB Source 1"
-          TopLeft="382.499987686674,71.9666675427881" />
+          Size="152.8,41.6"
+          Id="Package\Src to STG\Derived Column"
+          TopLeft="290.499983295798,465.499994281927" />
+        <NodeLayout
+          Size="119.2,41.6"
+          Id="Package\Src to STG\Multicast"
+          TopLeft="43.3666642535066,121.333332489596" />
         <NodeLayout
           Size="129.6,41.6"
           Id="Package\Src to STG\Merge Join"
-          TopLeft="279.566658655637,263.466663491461" />
+          TopLeft="285.399991670251,263.466663491461" />
         <NodeLayout
           Size="152,41.6"
-          Id="Package\Src to STG\OLE DB Source"
-          TopLeft="175.3333242726,65.2999995841583" />
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\Src to STG\Derived Column"
-          TopLeft="284.666650281184,465.499994281927" />
-        <NodeLayout
-          Size="97.6,41.6"
-          Id="Package\Src to STG\Sort"
-          TopLeft="203.16665578468,169.866665485435" />
+          Id="Package\Src to STG\OLE DB Source 1"
+          TopLeft="388.333320701288,71.9666675427881" />
         <NodeLayout
           Size="106.4,41.6"
           Id="Package\Src to STG\Sort 1"
-          TopLeft="398.099978554747,174.266665666236" />
-        <EdgeLayout
-          Id="Package\Src to STG.Paths[OLE DB Source Output]"
-          TopLeft="454.899983120711,113.566667542788">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.6999981234478"
-              Start="0,0"
-              End="0,53.1999981234478">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,53.1999981234478" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Src to STG.Paths[Sort Output]"
-          TopLeft="451.299978554747,215.866665666236">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-106.933319899109,47.5999978252255"
-              Start="0,0"
-              End="-106.933319899109,40.0999978252255">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.7999989126127" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.7999989126127"
-                    Point2="0,23.7999989126127"
-                    Point3="-4,23.7999989126127" />
-                  <mssgle:LineSegment
-                    End="-102.933319899109,23.7999989126127" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-102.933319899109,23.7999989126127"
-                    Point2="-106.933319899109,23.7999989126127"
-                    Point3="-106.933319899109,27.7999989126127" />
-                  <mssgle:LineSegment
-                    End="-106.933319899109,40.0999978252255" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Src to STG.Paths[Sort Output1]"
-          TopLeft="251.96665578468,211.466665485435">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="72.1333362042903,51.9999980060262"
-              Start="0,0"
-              End="72.1333362042903,44.4999980060262">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.8195110133277" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.8195110133277"
-                    Point2="0,30.8195110133277"
-                    Point3="4,30.8195110133277" />
-                  <mssgle:LineSegment
-                    End="68.1333362042903,30.8195110133277" />
-                  <mssgle:CubicBezierSegment
-                    Point1="68.1333362042903,30.8195110133277"
-                    Point2="72.1333362042903,30.8195110133277"
-                    Point3="72.1333362042903,34.8195110133277" />
-                  <mssgle:LineSegment
-                    End="72.1333362042903,44.4999980060262" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="403.933311569361,174.266665666236" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Src to STG\OLE DB Source"
+          TopLeft="181.166657287214,65.2999995841583" />
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\Src to STG\OLE DB Destination 1"
+          TopLeft="278.099985111257,563.533330193427" />
         <NodeLayout
           Size="153.6,41.6"
           Id="Package\Src to STG\Conditional Split"
-          TopLeft="271.433318808841,346.199997993112" />
+          TopLeft="277.266651823455,346.199997993112" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\Src to STG\Sort"
+          TopLeft="208.999988799294,169.866665485435" />
         <EdgeLayout
-          Id="Package\Src to STG.Paths[Merge Join Output]"
-          TopLeft="346.29998873224,305.066663491461">
+          Id="Package\Src to STG.Paths[Derived Column Output]"
+          TopLeft="367.499984203528,507.099994281927">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,41.1333345016503"
+              EndConnector="0,56.4333359114994"
               Start="0,0"
-              End="0,33.6333345016503">
+              End="0,48.9333359114994">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.6333345016503" />
+                    End="0,48.9333359114994" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3737,7 +3425,7 @@ WHERE ingredient_recipe_id = ?
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Src to STG.Paths[changed]"
-          TopLeft="348.233318808841,387.799997993112">
+          TopLeft="354.066651823455,387.799997993112">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3771,24 +3459,32 @@ WHERE ingredient_recipe_id = ?
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="180,41.6"
-          Id="Package\Src to STG\OLE DB Destination 1"
-          TopLeft="272.266652096643,563.533330193427" />
         <EdgeLayout
-          Id="Package\Src to STG.Paths[Derived Column Output]"
-          TopLeft="361.666651188914,507.099994281927">
+          Id="Package\Src to STG.Paths[Sort Output1]"
+          TopLeft="257.799988799294,211.466665485435">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,56.4333359114994"
+              EndConnector="72.1333362042903,51.9999980060262"
               Start="0,0"
-              End="0,48.9333359114994">
+              End="72.1333362042903,44.4999980060262">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,48.9333359114994" />
+                    End="0,26.8195110133277" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.8195110133277"
+                    Point2="0,30.8195110133277"
+                    Point3="4,30.8195110133277" />
+                  <mssgle:LineSegment
+                    End="68.1333362042903,30.8195110133277" />
+                  <mssgle:CubicBezierSegment
+                    Point1="68.1333362042903,30.8195110133277"
+                    Point2="72.1333362042903,30.8195110133277"
+                    Point3="72.1333362042903,34.8195110133277" />
+                  <mssgle:LineSegment
+                    End="72.1333362042903,44.4999980060262" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3797,13 +3493,43 @@ WHERE ingredient_recipe_id = ?
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="119.2,41.6"
-          Id="Package\Src to STG\Multicast"
-          TopLeft="37.5333312388925,121.333332489596" />
+        <EdgeLayout
+          Id="Package\Src to STG.Paths[Sort Output]"
+          TopLeft="457.133311569361,215.866665666236">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-106.933319899109,47.5999978252255"
+              Start="0,0"
+              End="-106.933319899109,40.0999978252255">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.7999989126127" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.7999989126127"
+                    Point2="0,23.7999989126127"
+                    Point3="-4,23.7999989126127" />
+                  <mssgle:LineSegment
+                    End="-102.933319899109,23.7999989126127" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-102.933319899109,23.7999989126127"
+                    Point2="-106.933319899109,23.7999989126127"
+                    Point3="-106.933319899109,27.7999989126127" />
+                  <mssgle:LineSegment
+                    End="-106.933319899109,40.0999978252255" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Src to STG.Paths[OLE DB Source Output1]"
-          TopLeft="175.3333242726,86.0999995841583">
+          TopLeft="181.166657287214,86.0999995841583">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3830,8 +3556,30 @@ WHERE ingredient_recipe_id = ?
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Src to STG.Paths[OLE DB Source Output]"
+          TopLeft="460.733316135325,113.566667542788">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.6999981234478"
+              Start="0,0"
+              End="0,53.1999981234478">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.1999981234478" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Src to STG.Paths[Multicast Output 1]"
-          TopLeft="156.733331238892,142.133332489596">
+          TopLeft="162.566664253506,142.133332489596">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3863,62 +3611,20 @@ WHERE ingredient_recipe_id = ?
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="126.4,41.6"
-          Id="Package\Src to STG\Aggregate"
-          TopLeft="34.4999987706542,220.133331802554" />
         <EdgeLayout
-          Id="Package\Src to STG.Paths[Multicast Output 3]"
-          TopLeft="97.4166650047733,162.933332489596">
+          Id="Package\Src to STG.Paths[Merge Join Output]"
+          TopLeft="352.133321746854,305.066663491461">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,57.1999993129571"
+              EndConnector="0,41.1333345016503"
               Start="0,0"
-              End="0,49.6999993129571">
+              End="0,33.6333345016503">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,49.6999993129571" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Src to STG\OLE DB Destination"
-          TopLeft="21.1666661658221,309.399997848471" />
-        <EdgeLayout
-          Id="Package\Src to STG.Paths[Aggregate Output 1]"
-          TopLeft="97.6999987706542,261.733331802554">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="9.06666739516784,47.6666660459176"
-              Start="0,0"
-              End="9.06666739516784,40.1666660459176">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.8333330229588" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.8333330229588"
-                    Point2="0,23.8333330229588"
-                    Point3="4,23.8333330229588" />
-                  <mssgle:LineSegment
-                    End="5.06666739516784,23.8333330229588" />
-                  <mssgle:CubicBezierSegment
-                    Point1="5.06666739516784,23.8333330229588"
-                    Point2="9.06666739516784,23.8333330229588"
-                    Point3="9.06666739516784,27.8333330229588" />
-                  <mssgle:LineSegment
-                    End="9.06666739516784,40.1666660459176" />
+                    End="0,33.6333345016503" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3945,6 +3651,19 @@ WHERE ingredient_recipe_id = ?
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Src to STG\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Src to STG\OLE DB Destination 1">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4174,7 +3893,7 @@ WHERE ingredient_recipe_id = ?
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -4184,23 +3903,10 @@ WHERE ingredient_recipe_id = ?
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\STG to DWH\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -4218,20 +3924,7 @@ WHERE ingredient_recipe_id = ?
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Src to STG\OLE DB Destination 1">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Src to STG\OLE DB Destination">
+    design-time-name="Package\STG to DWH\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
