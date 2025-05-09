@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>coffeeshop project</Name>
-    <LastWriteTime>2025-05-09T19:24:56.3135812Z</LastWriteTime>
+    <LastWriteTime>2025-05-09T23:06:16.9042496Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -18,7 +18,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>recipe_stg.dtsx</Name>
-      <LastWriteTime>2025-05-09T17:06:57.589753Z</LastWriteTime>
+      <LastWriteTime>2025-05-09T20:29:47.9410018Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -38,12 +38,12 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>shift_stg.dtsx</Name>
-      <LastWriteTime>2025-05-09T19:40:02.4361539Z</LastWriteTime>
+      <LastWriteTime>2025-05-09T23:06:16.8113021Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Fact_Item_Profit.dtsx</Name>
-      <LastWriteTime>2025-05-09T17:06:57.1160271Z</LastWriteTime>
+      <LastWriteTime>2025-05-09T20:29:47.8900253Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -53,7 +53,22 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Fact_Sales.dtsx</Name>
-      <LastWriteTime>2025-05-09T17:06:57.1919812Z</LastWriteTime>
+      <LastWriteTime>2025-05-09T20:29:47.8930227Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>new recipe and ing.dtsx</Name>
+      <LastWriteTime>2025-05-09T20:29:47.9050184Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>FACT_RECIPE.dtsx</Name>
+      <LastWriteTime>2025-05-09T20:29:47.8850266Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Fact_Staff_Cost.dtsx</Name>
+      <LastWriteTime>2025-05-09T23:31:28.8074018Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

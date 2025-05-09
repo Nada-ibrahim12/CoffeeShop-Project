@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package3"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{1215CFD4-00DA-44D2-B1FD-10AD50604A93}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{5154DD7B-F674-4E7C-81A7-4DFEAD6B9A16}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1352,6 +1352,10 @@ WHERE  last_update &gt; '1/1/1950';</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="155,42"
+          Id="Package\Data Flow Task"
+          TopLeft="297,215" />
+        <NodeLayout
           Size="152,42"
           Id="Package\ExtractLastDate"
           TopLeft="63.333334790336,132.466666371359" />
@@ -1445,10 +1449,6 @@ WHERE  last_update &gt; '1/1/1950';</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="155,42"
-          Id="Package\Data Flow Task"
-          TopLeft="297,215" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="200.833336019682,233.999999683599">
@@ -1474,119 +1474,6 @@ WHERE  last_update &gt; '1/1/1950';</property>
       </GraphLayout>
     </LayoutInfo>
   </Package>
-  <TaskHost
-    design-time-name="Package\Src to STG">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="152,41.6"
-          Id="Package\Src to STG\OLE DB Source"
-          TopLeft="50.4999975413082,65.2999995841583" />
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Src to STG\OLE DB Destination"
-          TopLeft="443.833311022985,178.499999005596" />
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\Src to STG\Derived Column"
-          TopLeft="255.499986340602,138.966665738556" />
-        <EdgeLayout
-          Id="Package\Src to STG.Paths[OLE DB Source Output]"
-          TopLeft="126.499997541308,106.899999584158">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="205.399988799294,32.0666661543972"
-              Start="0,0"
-              End="205.399988799294,24.5666661543972">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12.0333330771986" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.0333330771986"
-                    Point2="0,16.0333330771986"
-                    Point3="4,16.0333330771986" />
-                  <mssgle:LineSegment
-                    End="201.399988799294,16.0333330771986" />
-                  <mssgle:CubicBezierSegment
-                    Point1="201.399988799294,16.0333330771986"
-                    Point2="205.399988799294,16.0333330771986"
-                    Point3="205.399988799294,20.0333330771986" />
-                  <mssgle:LineSegment
-                    End="205.399988799294,24.5666661543972" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Src to STG.Paths[Derived Column Output]"
-          TopLeft="408.299986340602,159.766665738556">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="35.5333246823825,39.5333332670406"
-              Start="0,0"
-              End="28.0333246823825,39.5333332670406">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="13.7666623411912,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="13.7666623411912,0"
-                    Point2="17.7666623411912,0"
-                    Point3="17.7666623411912,4" />
-                  <mssgle:LineSegment
-                    End="17.7666623411912,35.5333332670406" />
-                  <mssgle:CubicBezierSegment
-                    Point1="17.7666623411912,35.5333332670406"
-                    Point2="17.7666623411912,39.5333332670406"
-                    Point3="21.7666623411912,39.5333332670406" />
-                  <mssgle:LineSegment
-                    End="28.0333246823825,39.5333332670406" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Src to STG\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Src to STG\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Data Flow Task">
     <LayoutInfo>
@@ -1718,6 +1605,19 @@ WHERE  last_update &gt; '1/1/1950';</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\OLE DB Source">
     <Properties>
       <Property>
@@ -1736,7 +1636,7 @@ WHERE  last_update &gt; '1/1/1950';</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1746,15 +1646,115 @@ WHERE  last_update &gt; '1/1/1950';</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Src to STG">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Src to STG\OLE DB Source"
+          TopLeft="50.4999975413082,65.2999995841583" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Src to STG\OLE DB Destination"
+          TopLeft="443.833311022985,178.499999005596" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Src to STG\Derived Column"
+          TopLeft="255.499986340602,138.966665738556" />
+        <EdgeLayout
+          Id="Package\Src to STG.Paths[OLE DB Source Output]"
+          TopLeft="126.499997541308,106.899999584158">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="205.399988799294,32.0666661543972"
+              Start="0,0"
+              End="205.399988799294,24.5666661543972">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.0333330771986" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.0333330771986"
+                    Point2="0,16.0333330771986"
+                    Point3="4,16.0333330771986" />
+                  <mssgle:LineSegment
+                    End="201.399988799294,16.0333330771986" />
+                  <mssgle:CubicBezierSegment
+                    Point1="201.399988799294,16.0333330771986"
+                    Point2="205.399988799294,16.0333330771986"
+                    Point3="205.399988799294,20.0333330771986" />
+                  <mssgle:LineSegment
+                    End="205.399988799294,24.5666661543972" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Src to STG.Paths[Derived Column Output]"
+          TopLeft="408.299986340602,159.766665738556">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="35.5333246823825,39.5333332670406"
+              Start="0,0"
+              End="28.0333246823825,39.5333332670406">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="13.7666623411912,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.7666623411912,0"
+                    Point2="17.7666623411912,0"
+                    Point3="17.7666623411912,4" />
+                  <mssgle:LineSegment
+                    End="17.7666623411912,35.5333332670406" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17.7666623411912,35.5333332670406"
+                    Point2="17.7666623411912,39.5333332670406"
+                    Point3="21.7666623411912,39.5333332670406" />
+                  <mssgle:LineSegment
+                    End="28.0333246823825,39.5333332670406" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    design-time-name="Package\Src to STG\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Src to STG\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
