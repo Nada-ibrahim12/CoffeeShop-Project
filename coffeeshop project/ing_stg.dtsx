@@ -5,46 +5,46 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="MENNA"
   DTS:CreatorName="Menna\Mennaaaaa"
-  DTS:DTSID="{5E8F53DB-F997-4DD0-A361-7E4D08C4ECB3}"
+  DTS:DTSID="{18567EAF-D0FB-4D55-9714-7E13355D020C}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5685.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="ing_stg"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{EB4671D6-7C3D-4D9C-9E42-8D2D8E253123}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{8E6016E5-30F4-4A93-8E8F-FA2AA06925A5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{1898D9AA-C270-495A-9215-E91BEC1499E5}"
+      DTS:DTSID="{458FD2D1-3E39-48A0-927C-0113A352EF6E}"
       DTS:ObjectName="MENNA\SQLEXPRESS.CoffeeShop">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=MENNA\SQLEXPRESS;Initial Catalog=CoffeeShop;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-ing_stg-{1898D9AA-C270-495A-9215-E91BEC1499E5}MENNA\SQLEXPRESS.CoffeeShop;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=MENNA\SQLEXPRESS;Initial Catalog=CoffeeShop;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-ing_stg-{458FD2D1-3E39-48A0-927C-0113A352EF6E}MENNA\SQLEXPRESS.CoffeeShop;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop_STG]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{6D486563-CBFD-45F4-BA59-32A5B1615684}"
+      DTS:DTSID="{BD998E48-31DF-4A04-8021-A33AABBF44F5}"
       DTS:ObjectName="MENNA\SQLEXPRESS.CoffeeShop_STG">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=MENNA\SQLEXPRESS;Initial Catalog=CoffeeShop_STG;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-ing_stg-{6D486563-CBFD-45F4-BA59-32A5B1615684}MENNA\SQLEXPRESS.CoffeeShop_STG;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=MENNA\SQLEXPRESS;Initial Catalog=CoffeeShop_STG;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-ing_stg-{BD998E48-31DF-4A04-8021-A33AABBF44F5}MENNA\SQLEXPRESS.CoffeeShop_STG;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{6FBBB424-CBBA-49A1-93CB-3A73A52FEC0C}"
+      DTS:DTSID="{C1AB72ED-6916-401F-A687-93BA7BAF70FE}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="Last_Extract_Date">
@@ -53,7 +53,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{124EA640-EC46-4D24-BF32-4E4A37C21513}"
+      DTS:DTSID="{88664117-0A00-485A-9515-9A96C8AB5E50}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;SELECT * FROM ingredients WHERE last_update &gt; ' &quot;+ (DT_WSTR, 50)   @[User::Last_Extract_Date]  +&quot; ';&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -68,7 +68,7 @@
       DTS:refId="Package\Data Flow Task"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{667C6979-9FAC-4AA2-B0B3-C20B94D3D841}"
+      DTS:DTSID="{18F3CBB3-7C8B-456F-B7AD-5CC647C6DAB7}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Data Flow Task"
@@ -137,8 +137,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\OLE DB Destination 1.Connections[OleDbConnection]"
-                  connectionManagerID="{EF1A89B6-5ECD-474E-B90D-78E72CFABE07}:invalid"
-                  connectionManagerRefId="{EF1A89B6-5ECD-474E-B90D-78E72CFABE07}:invalid"
+                  connectionManagerID="{EF1A89B6-5ECD-474E-B90D-78E72CFABE07}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-CLGUGFV_MSSQLSERVER01.CoffeeShop_DWH]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -302,8 +302,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\OLE DB Source 1.Connections[OleDbConnection]"
-                  connectionManagerID="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}:invalid"
-                  connectionManagerRefId="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}:invalid"
+                  connectionManagerID="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-CLGUGFV_MSSQLSERVER01.CoffeeShop_STG]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -510,7 +510,7 @@
       DTS:refId="Package\ExtractLastDate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{831cccf3-4806-424f-94d4-6ad8336f6e2c}"
+      DTS:DTSID="{B5C4C9E6-FA22-4046-98E8-10B404B984A9}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="ExtractLastDate"
@@ -519,8 +519,8 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{6D486563-CBFD-45F4-BA59-32A5B1615684}"
-          SQLTask:SqlStatementSource="SELECT last_extract_date&#xA;FROM     dbo.Conf_Table&#xA;WHERE  (table_name = 'rota')"
+          SQLTask:Connection="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}"
+          SQLTask:SqlStatementSource="SELECT last_extract_date&#xA;FROM     dbo.Conf_Table&#xA;WHERE  (table_name = 'ingredients')"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="Last_Extract_Date"
@@ -532,7 +532,7 @@
       DTS:refId="Package\Src to STG"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{168b7999-c648-456b-9a56-d13af8822499}"
+      DTS:DTSID="{104DA09E-98BB-4FF0-930E-B21017500072}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Src to STG"
@@ -666,8 +666,8 @@
               <connections>
                 <connection
                   refId="Package\Src to STG\ing.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop]"
-                  connectionManagerRefId="Package.ConnectionManagers[MENNA\SQLEXPRESS.CoffeeShop]"
+                  connectionManagerID="{C064C448-D722-43BB-959D-3B769D434B8A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-CLGUGFV_MSSQLSERVER01.CoffeeShop]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -900,8 +900,8 @@
               <connections>
                 <connection
                   refId="Package\Src to STG\OLE DB Destination 1.Connections[OleDbConnection]"
-                  connectionManagerID="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}:invalid"
-                  connectionManagerRefId="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}:invalid"
+                  connectionManagerID="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-CLGUGFV_MSSQLSERVER01.CoffeeShop_STG]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1048,7 +1048,7 @@
       DTS:refId="Package\truncate ing_stg"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{8728824d-4eca-44e8-ba0c-f1f284499d18}"
+      DTS:DTSID="{FFA803B4-0038-487C-ACC9-8FF0B339C7F2}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="truncate ing_stg"
@@ -1057,7 +1057,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{6D486563-CBFD-45F4-BA59-32A5B1615684}"
+          SQLTask:Connection="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE stg_ingredients;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -1065,7 +1065,7 @@
       DTS:refId="Package\Update conf_table"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{187f1ec3-1524-4904-a495-4ddae4324670}"
+      DTS:DTSID="{47E9C51C-6AED-48EA-9690-A0F3C49F5F86}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Update conf_table"
@@ -1074,8 +1074,8 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{BB75B353-047C-462B-B710-FFBE9A6DF229}"
-          SQLTask:SqlStatementSource="UPDATE Conf_Table&#xA;SET &#xA;last_extract_date = GETDATE()&#xA;WHERE table_name = 'rota';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{07BBE0DC-6B23-4DFD-9C4C-0D17399032D3}"
+          SQLTask:SqlStatementSource="UPDATE Conf_Table&#xA;SET &#xA;last_extract_date = GETDATE()&#xA;WHERE table_name = 'ingredients';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -1083,7 +1083,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{b3a1b690-8a2e-47b7-9342-d19358b441ce}"
+      DTS:DTSID="{2D158A20-AA76-4128-BF26-D3A93B9BD56D}"
       DTS:From="Package\truncate ing_stg"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -1091,7 +1091,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{bc7a700f-23e1-483a-acc1-83deb49092e2}"
+      DTS:DTSID="{7B636493-D129-4494-B2B3-300C42EA0358}"
       DTS:From="Package\ExtractLastDate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
@@ -1099,7 +1099,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{58BD8549-0E10-48AD-AE68-35EBA982E0BF}"
+      DTS:DTSID="{ABC11F4C-A1B6-4C65-9736-27B826B8AAC0}"
       DTS:From="Package\Src to STG"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
@@ -1107,7 +1107,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
-      DTS:DTSID="{F4779BB7-BAEB-4B4B-A7E3-45242993DBD6}"
+      DTS:DTSID="{93065EB1-06C5-46D4-9409-23BCB52861B6}"
       DTS:From="Package\Data Flow Task"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
@@ -1125,6 +1125,10 @@
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="305.499983608723,248.833331730233" />
         <NodeLayout
           Size="152,41.6"
           Id="Package\ExtractLastDate"
@@ -1185,10 +1189,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="150.4,41.6"
-          Id="Package\Data Flow Task"
-          TopLeft="305.499983608723,248.833331730233" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="200.433336019682,231.799999367198">
@@ -1261,114 +1261,18 @@
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Src to STG">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="92,41.6"
-          Id="Package\Src to STG\ing"
-          TopLeft="185.311115558004,55.7666663171186" />
-        <NodeLayout
-          Size="180,41.6"
-          Id="Package\Src to STG\OLE DB Destination 1"
-          TopLeft="597.533315257398,181.433332109915" />
-        <NodeLayout
-          Size="161.6,41.6"
-          Id="Package\Src to STG\Derived Column 1"
-          TopLeft="377.999979647498,130.16666671488" />
-        <EdgeLayout
-          Id="Package\Src to STG.Paths[OLE DB Source Output]"
-          TopLeft="231.311115558004,97.3666663171186">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="227.488864089494,32.8000003977617"
-              Start="0,0"
-              End="227.488864089494,25.3000003977617">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12.4000001988809" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.4000001988809"
-                    Point2="0,16.4000001988809"
-                    Point3="4,16.4000001988809" />
-                  <mssgle:LineSegment
-                    End="223.488864089494,16.4000001988809" />
-                  <mssgle:CubicBezierSegment
-                    Point1="223.488864089494,16.4000001988809"
-                    Point2="227.488864089494,16.4000001988809"
-                    Point3="227.488864089494,20.4000001988809" />
-                  <mssgle:LineSegment
-                    End="227.488864089494,25.3000003977617" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Src to STG.Paths[Derived Column Output]"
-          TopLeft="539.599979647498,150.96666671488">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="57.9333356099,51.2666653950349"
-              Start="0,0"
-              End="50.4333356099,51.2666653950349">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="24.96666780495,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="24.96666780495,0"
-                    Point2="28.96666780495,0"
-                    Point3="28.96666780495,4" />
-                  <mssgle:LineSegment
-                    End="28.96666780495,47.2666653950349" />
-                  <mssgle:CubicBezierSegment
-                    Point1="28.96666780495,47.2666653950349"
-                    Point2="28.96666780495,51.2666653950349"
-                    Point3="32.96666780495,51.2666653950349" />
-                  <mssgle:LineSegment
-                    End="50.4333356099,51.2666653950349" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Src to STG\ing">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
     design-time-name="Package\Data Flow Task">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="152,41.6"
-          Id="Package\Data Flow Task\OLE DB Source 1"
-          TopLeft="60.999999985099,60" />
-        <NodeLayout
           Size="171.2,41.6"
           Id="Package\Data Flow Task\OLE DB Destination 1"
           TopLeft="60,169.999998360872" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Data Flow Task\OLE DB Source 1"
+          TopLeft="60.999999985099,60" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
           TopLeft="136.999999985099,101.6">
@@ -1406,5 +1310,114 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <TaskHost
+    design-time-name="Package\Src to STG">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="92,41.6"
+          Id="Package\Src to STG\ing"
+          TopLeft="185.311115558004,55.7666663171186" />
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\Src to STG\Derived Column 1"
+          TopLeft="308.833316759931,131.03333337552" />
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\Src to STG\OLE DB Destination 1"
+          TopLeft="517.533319628405,203.099998625914" />
+        <EdgeLayout
+          Id="Package\Src to STG.Paths[OLE DB Source Output]"
+          TopLeft="231.311115558004,97.3666663171186">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="158.322201201927,33.6666670584014"
+              Start="0,0"
+              End="158.322201201927,26.1666670584014">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.8333335292007" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.8333335292007"
+                    Point2="0,16.8333335292007"
+                    Point3="4,16.8333335292007" />
+                  <mssgle:LineSegment
+                    End="154.322201201927,16.8333335292007" />
+                  <mssgle:CubicBezierSegment
+                    Point1="154.322201201927,16.8333335292007"
+                    Point2="158.322201201927,16.8333335292007"
+                    Point3="158.322201201927,20.8333335292007" />
+                  <mssgle:LineSegment
+                    End="158.322201201927,26.1666670584014" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Src to STG.Paths[Derived Column Output]"
+          TopLeft="389.633316759931,172.63333337552">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="217.900002868474,30.4666652503944"
+              Start="0,0"
+              End="217.900002868474,22.9666652503944">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.2333326251972" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.2333326251972"
+                    Point2="0,15.2333326251972"
+                    Point3="4,15.2333326251972" />
+                  <mssgle:LineSegment
+                    End="213.900002868474,15.2333326251972" />
+                  <mssgle:CubicBezierSegment
+                    Point1="213.900002868474,15.2333326251972"
+                    Point2="217.900002868474,15.2333326251972"
+                    Point3="217.900002868474,19.2333326251972" />
+                  <mssgle:LineSegment
+                    End="217.900002868474,22.9666652503944" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Src to STG\ing">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Src to STG\OLE DB Destination 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

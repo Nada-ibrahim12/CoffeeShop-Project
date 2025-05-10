@@ -3,14 +3,6 @@ CREATE DATABASE CoffeeShop_STG;
 USE CoffeeShop_STG;
 
 
-CREATE TABLE stg_staff (
-    staff_id VARCHAR(10),
-    first_name VARCHAR(50),
-    last_name VARCHAR(50),
-    position VARCHAR(20),
-    sal_per_hour DECIMAL(10, 2)
-);
-
 CREATE TABLE stg_items (
     item_id VARCHAR(10),
     sku VARCHAR(20),
@@ -31,17 +23,6 @@ CREATE TABLE stg_orders (
 );
 
 
-CREATE TABLE stg_recipes (
-    row_id INT,
-    recipe_id VARCHAR(20),
-	ing_id VARCHAR(10),
-    ing_name VARCHAR(50),
-    ing_weight DECIMAL(10, 2),
-    ing_meas VARCHAR(10),
-    ing_price DECIMAL(10, 2),
-	recipe_quantity DECIMAL(10, 2)
-);
-
 CREATE TABLE Ingredients_STG (
 	ing_id VARCHAR(10),
     ing_name VARCHAR(50),
@@ -50,7 +31,6 @@ CREATE TABLE Ingredients_STG (
     ing_price DECIMAL(10, 2)
 );
 
--- RECIPE DIMENSION TABLE
 CREATE TABLE Recipe_STG (
 	recipe_id varchar(20) PRIMARY KEY,
 	ingredients NVARCHAR(MAX),
@@ -70,6 +50,13 @@ CREATE TABLE stg_shift (
     end_time TIME
 );
 
+CREATE TABLE stg_staff (
+    staff_id VARCHAR(10),
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    position VARCHAR(20),
+    sal_per_hour DECIMAL(10, 2)
+);
 
 CREATE TABLE stg_rota (
     row_id INT,
@@ -85,8 +72,6 @@ CREATE TABLE Conf_Table
   last_extract_date	 datetime
 );
 
-DELETE FROM Conf_Table;
-
 INSERT INTO Conf_Table VALUES
 	('orders', '1950-01-01'),
 	('items', '1950-01-01'),
@@ -96,3 +81,18 @@ INSERT INTO Conf_Table VALUES
 	('staff', '1950-01-01'),
 	('ingredients', '1950-01-01'),
 	('recipes', '1950-01-01');
+	
+DELETE FROM Conf_Table;
+
+
+	-- OLD
+CREATE TABLE stg_recipes (
+    row_id INT,
+    recipe_id VARCHAR(20),
+	ing_id VARCHAR(10),
+    ing_name VARCHAR(50),
+    ing_weight DECIMAL(10, 2),
+    ing_meas VARCHAR(10),
+    ing_price DECIMAL(10, 2),
+	recipe_quantity DECIMAL(10, 2)
+);

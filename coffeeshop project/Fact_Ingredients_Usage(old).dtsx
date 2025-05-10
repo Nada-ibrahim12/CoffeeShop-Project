@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-CLGUGFV"
   DTS:CreatorName="DESKTOP-CLGUGFV\nadae"
-  DTS:DTSID="{0D241EC7-F975-4C42-991E-0E9346404BFE}"
+  DTS:DTSID="{C9ABE716-3104-400F-A0C4-0EC620F7F51A}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5685.0"
   DTS:LocaleID="1033"
-  DTS:ObjectName="Fact_Ingredients_Usage"
+  DTS:ObjectName="Fact_Ingredients_Usage old"
   DTS:PackageType="5"
-  DTS:VersionBuild="23"
-  DTS:VersionGUID="{AB7F5E04-8BA4-47CC-92E8-61629D66DCBC}">
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{E88CBD3A-2A5D-48B2-B859-AFD6B5525CF0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1433,7 +1433,7 @@ where [refTable].[FullDate] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>

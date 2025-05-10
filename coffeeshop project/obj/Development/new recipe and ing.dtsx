@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="new recipe and ing"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{81BF1F93-2604-4BD3-B1FA-337ACF75BCE1}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{D0B63260-F89A-4F82-B192-56C966D74D9A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1698,33 +1698,21 @@ GROUP BY recipe_id;</property>
         <NodeLayout
           Size="159.2,41.6"
           Id="Package\Data Flow Task 1"
-          TopLeft="245.833319901593,233.999998372793" />
+          TopLeft="231.666654008959,233.999998372793" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="311.033320447968,180.266665702395">
+          TopLeft="311.149987228463,180.266665702396">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="14.3999994536243,53.7333326703977"
+              EndConnector="0,53.733332670397"
               Start="0,0"
-              End="14.3999994536243,46.2333326703977">
+              End="0,46.233332670397">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.8666663351988" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.8666663351988"
-                    Point2="0,26.8666663351988"
-                    Point3="4,26.8666663351988" />
-                  <mssgle:LineSegment
-                    End="10.3999994536243,26.8666663351988" />
-                  <mssgle:CubicBezierSegment
-                    Point1="10.3999994536243,26.8666663351988"
-                    Point2="14.3999994536243,26.8666663351988"
-                    Point3="14.3999994536243,30.8666663351988" />
-                  <mssgle:LineSegment
-                    End="14.3999994536243,46.2333326703977" />
+                    End="0,46.233332670397" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2011,32 +1999,6 @@ GROUP BY recipe_id;</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task 1\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task 1\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task 1\OLE DB Source 1">
     <Properties>
       <Property>
@@ -2051,6 +2013,32 @@ GROUP BY recipe_id;</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task 1\OLE DB Destination 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task 1\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task 1\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

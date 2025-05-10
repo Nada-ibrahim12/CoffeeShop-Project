@@ -4,18 +4,6 @@ USE CoffeeShop_DWH;
 
 ---- DIMENSION TABLES
 
--- RECIPE INGREDIENT DIMENSION TABLE (OLD)
-CREATE TABLE IngredientRecipe_Dim (
-    ingredient_recipe_id VARCHAR(20) PRIMARY KEY,
-	recipe_id VARCHAR(20),
-    ing_id VARCHAR(10),
-    ing_name VARCHAR(50),
-    ing_weight DECIMAL(10, 2),
-    ing_meas VARCHAR(10),
-    ing_price DECIMAL(10, 2),
-    recipe_quantity DECIMAL(10, 2),
-);
-
 -- INGREDIENT DIMENSION TABLE
 CREATE TABLE Ingredients_Dim (
 	ing_id VARCHAR(10),
@@ -31,8 +19,6 @@ CREATE TABLE Recipe_Dim (
 	ingredients NVARCHAR(MAX),
 	quantities NVARCHAR(MAX)
 );
-
-SELECT * FROM Recipe_Dim;
 
 -- ITEM DIMENSION TABLE 
 CREATE TABLE Item_Dim (
@@ -80,36 +66,14 @@ CREATE TABLE Dim_Date (
 
 -- CUSTOMER DIMENSION
 CREATE Table Dim_Customer (
-  customer_id INT PRIMARY KEY,
+  customer_id INT PRIMARY KEY IDENTITY(1,1),
   cust_name VARCHAR(50)
 );
 
-DROP TABLE Dim_Customer;
 
 ---- FACT TABLES
---1. ITEM PROFIT FACT TABLE
-CREATE TABLE Fact_Item_Profit (
-	surrogate_id INT PRIMARY KEY IDENTITY(1,1),
-	item_id VARCHAR(10) FOREIGN KEY REFERENCES Item_Dim(item_id),
-	recipe_id VARCHAR(20) FOREIGN KEY REFERENCES Recipe_Dim(recipe_id),
-	item_price DECIMAL(10,2),
-	recipe_cost DECIMAL(10,2),
-	profit DECIMAL(10,2)
-);
-SELECT * FROM Fact_Item_Profit;
 
---2.INGREDIENTS USAGE FACT TABLE (OLD)
-CREATE TABLE Fact_Ingredients_Usage (
-    surrogate_id INT PRIMARY KEY IDENTITY(1,1),
-    ingredient_recipe_id VARCHAR(20) FOREIGN KEY REFERENCES IngredientRecipe_Dim(ingredient_recipe_id),
-    item_id VARCHAR(10) FOREIGN KEY REFERENCES Item_Dim(item_id),
-    date_id BIGINT FOREIGN KEY REFERENCES Date_Dim(date_id),
-    item_quantity INT,
-    ing_quantity_used INT
-);
-SELECT * FROM Fact_Ingredients_Usage;
-
---3.SALES FACT TABLE
+-- SALES FACT TABLE
 CREATE TABLE Fact_Sales (
 	surrogate_id INT PRIMARY KEY IDENTITY(1,1),
 	order_id VARCHAR(10),
@@ -120,7 +84,7 @@ CREATE TABLE Fact_Sales (
 	sales_amount DECIMAL(10,2) -- item_price * item_quantity
 );
 
---4. STAFF COST FACT TABLE
+-- STAFF COST FACT TABLE
 CREATE TABLE Fact_Staff_Cost (
 	surrogate_id INT PRIMARY KEY IDENTITY(1,1),
 	staff_id VARCHAR(10) FOREIGN KEY REFERENCES Staff_Dim(staff_id),
@@ -141,17 +105,49 @@ CREATE TABLE Fact_Recipe (
     FOREIGN KEY (recipe_id) REFERENCES Recipe_Dim(recipe_id),
     FOREIGN KEY (item_id) REFERENCES Item_Dim(item_id),
 );
-SELECT * FROM Fact_Recipe;
-DROP TABLE Fact_Recipe;
 
+-- CUSTOMER VISITS FACT TABLE
 CREATE TABLE Fact_Customer_Visits_Monthly (
     visit_id INT PRIMARY KEY IDENTITY(1,1),
     customer_id INT FOREIGN KEY REFERENCES Dim_Customer(customer_id),
     cust_name VARCHAR(50),
-    month_name VARCHAR(20),
+    month_name NVARCHAR(20),
     year INT,
     visit_count INT,
     total_spent DECIMAL(10,2),
 );
-SELECT * FROM Fact_Customer_Visits_Monthly;
-DROP TABLE Fact_Customer_Visits_Monthly;
+
+
+
+-- OLD SCHEMAA
+-- RECIPE INGREDIENT DIMENSION TABLE (OLD)
+-- CREATE TABLE IngredientRecipe_Dim (
+--    ingredient_recipe_id VARCHAR(20) PRIMARY KEY,
+--	recipe_id VARCHAR(20),
+--    ing_id VARCHAR(10),
+--    ing_name VARCHAR(50),
+--    ing_weight DECIMAL(10, 2),
+--    ing_meas VARCHAR(10),
+--    ing_price DECIMAL(10, 2),
+--    recipe_quantity DECIMAL(10, 2),
+--);
+
+--1. ITEM PROFIT FACT TABLE
+CREATE TABLE Fact_Item_Profit (
+	surrogate_id INT PRIMARY KEY IDENTITY(1,1),
+	item_id VARCHAR(10) FOREIGN KEY REFERENCES Item_Dim(item_id),
+	recipe_id VARCHAR(20) FOREIGN KEY REFERENCES Recipe_Dim(recipe_id),
+	item_price DECIMAL(10,2),
+	recipe_cost DECIMAL(10,2),
+	profit DECIMAL(10,2)
+);
+
+--2.INGREDIENTS USAGE FACT TABLE (OLD)
+CREATE TABLE Fact_Ingredients_Usage (
+    surrogate_id INT PRIMARY KEY IDENTITY(1,1),
+    ingredient_recipe_id VARCHAR(20) FOREIGN KEY REFERENCES IngredientRecipe_Dim(ingredient_recipe_id),
+    item_id VARCHAR(10) FOREIGN KEY REFERENCES Item_Dim(item_id),
+    date_id BIGINT FOREIGN KEY REFERENCES Date_Dim(date_id),
+    item_quantity INT,
+    ing_quantity_used INT
+);
