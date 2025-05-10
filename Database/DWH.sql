@@ -80,10 +80,11 @@ CREATE TABLE Dim_Date (
 
 -- CUSTOMER DIMENSION
 CREATE Table Dim_Customer (
-  customer_id INT,
+  customer_id INT PRIMARY KEY,
   cust_name VARCHAR(50)
 );
 
+DROP TABLE Dim_Customer;
 
 ---- FACT TABLES
 --1. ITEM PROFIT FACT TABLE
@@ -112,11 +113,9 @@ SELECT * FROM Fact_Ingredients_Usage;
 CREATE TABLE Fact_Sales (
 	surrogate_id INT PRIMARY KEY IDENTITY(1,1),
 	order_id VARCHAR(10),
-	item_id VARCHAR(10) FOREIGN KEY REFERENCES Item_Dim(item_id),
-	date_id BIGINT FOREIGN KEY REFERENCES Date_Dim(date_id),
-	cust_id INT FOREIGN KEY REFERENCES Dim_Customer(cust_id),
+    date_id BIGINT FOREIGN KEY REFERENCES Dim_Date(Date_ID),
+	cust_id INT FOREIGN KEY REFERENCES Dim_Customer(customer_id),
 	order_type_id VARCHAR(10) FOREIGN KEY REFERENCES Order_Type_Dim(order_type_id),
-	item_price DECIMAL(10,2),
 	item_quantity INT,
 	sales_amount DECIMAL(10,2) -- item_price * item_quantity
 );
@@ -126,8 +125,7 @@ CREATE TABLE Fact_Staff_Cost (
 	surrogate_id INT PRIMARY KEY IDENTITY(1,1),
 	staff_id VARCHAR(10) FOREIGN KEY REFERENCES Staff_Dim(staff_id),
 	shift_id VARCHAR(10) FOREIGN KEY REFERENCES Shift_Dim(shift_id),
---	rota_id VARCHAR(10) FOREIGN KEY REFERENCES Rota_Dim(rota_id),
-	date_id BIGINT FOREIGN KEY REFERENCES Date_Dim(date_id),
+    date_id BIGINT FOREIGN KEY REFERENCES Dim_Date(Date_ID),
 	worked_hours INT,
 	sal_per_hour DECIMAL(10,2),
 	cost DECIMAL(10,2)
@@ -145,3 +143,15 @@ CREATE TABLE Fact_Recipe (
 );
 SELECT * FROM Fact_Recipe;
 DROP TABLE Fact_Recipe;
+
+CREATE TABLE Fact_Customer_Visits_Monthly (
+    visit_id INT PRIMARY KEY IDENTITY(1,1),
+    customer_id INT FOREIGN KEY REFERENCES Dim_Customer(customer_id),
+    cust_name VARCHAR(50),
+    month_name VARCHAR(20),
+    year INT,
+    visit_count INT,
+    total_spent DECIMAL(10,2),
+);
+SELECT * FROM Fact_Customer_Visits_Monthly;
+DROP TABLE Fact_Customer_Visits_Monthly;

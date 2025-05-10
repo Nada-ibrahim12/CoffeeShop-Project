@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-CLGUGFV</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAnZy+nzK57UORyStop22RTgAAAAACAAAAAAAQZgAAAAEAACAAAACZ7NGhdr+V1A1Ml5PR2CYM+9JYITPS+dVGKR1pq2uOLgAAAAAOgAAAAAIAACAAAADV4gnAOPY400HK6mJAHBpvAIo7jnBeokvzt4LV4Q3cRpAAAADZNAfBFAC9FOA7vWrQoFIDtLTB0YCod16HkdMl6xWuH9l14+63GlGmbScMwizC2w1vVv+ph29VEJKJaF8uSXpGmiiAUJNslGGhRuGGVdAZrek/T8PEMCf4H6gE6U5WKUNiDuIqreRUBduvXtneDFN04fuvafv2fL6xok44EGo6Ru2vuS5fSbjtuEV7RUARsY9AAAAAJovzzRSXibteLvMz6O8wgb6rBC9uiZK7bQt3cXqnTis+h3XYFfEqH8eSpLVNo8W05XdLtNeWo9I2fkXQW+8MCg==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAM9fCqxWPoUuay55XHcjnrwAAAAACAAAAAAAQZgAAAAEAACAAAABnm/zqSumpzaPWWpqJNmBMV7CJzHcfu+FCdL5Yb0XucAAAAAAOgAAAAAIAACAAAADiiT9pAcrauYNpXJBonqLmz4aSWYt5e0uLASriTNPWZJAAAADsjmPP7d+7qa3iGAfynmWez5B6tcCB+lYjwlfkPc66aUJqO1xQ1ewgYfQ0GflJ5fV9YOwwoodv9oOwSLy/K2f117qeafMNu4pmWu890NLJNXkTtdWB+nWCXyRmgXuC0z+rmeNubZxojdSPo7v1nuz4pP4qSpELLfKloWw6O8q1jG7Tc34h7tl/mDBWl+yye8lAAAAAd/PXfX1gzbBIu+/2pVQA9oT1zZW+7YBVMzUm3yMC/yi5VJnvFgJ5lBr8dXvTn8YWiAkPZPeHOZuh7RafjnX7dw==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -43,6 +43,7 @@
           <SSIS:Package SSIS:Name="new recipe and ing.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="FACT_RECIPE.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Fact_Staff_Cost.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Fact_Customer_Visit.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="DESKTOP-CLGUGFV_MSSQLSERVER01.CoffeeShop.conmgr" />
@@ -5545,14 +5546,14 @@
             </SSIS:PackageMetaData>
             <SSIS:PackageMetaData SSIS:Name="Fact_Sales.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{4D42C773-9EA1-46BB-AAB0-C0E2CA4581A3}</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{9ABC9BF4-CBF5-4D93-9CF8-E99FE4ED9CA6}</SSIS:Property>
                 <SSIS:Property SSIS:Name="Name">Fact_Sales</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">91</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">104</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{3509CA05-8E2D-428D-B828-D38C504E67D7}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{54FFCB7E-E5CB-4842-98DD-47848BC0B531}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -5585,7 +5586,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=MENNA\SQLEXPRESS;Initial Catalog=CoffeeShop;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Fact_Sales-{D879D81F-FB28-46B0-BB98-742CD9F426BA}MENNA\SQLEXPRESS.CoffeeShop;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=MENNA\SQLEXPRESS;Initial Catalog=CoffeeShop;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Fact_Sales-{87211E2A-B249-4411-B33D-6F4C08A99856}MENNA\SQLEXPRESS.CoffeeShop;Auto Translate=False;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -5733,7 +5734,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=MENNA\SQLEXPRESS;Initial Catalog=CoffeeShop;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Fact_Sales-{C1574097-1BC4-45C5-B318-F71B95C8944C}MENNA\SQLEXPRESS.CoffeeShop 1;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=MENNA\SQLEXPRESS;Initial Catalog=CoffeeShop;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Fact_Sales-{8A5DC351-CF1A-416A-BC13-D2C65DC0B523}MENNA\SQLEXPRESS.CoffeeShop 1;Auto Translate=False;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -5881,7 +5882,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=MENNA\SQLEXPRESS;Initial Catalog=CoffeeShop_DWH;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Fact_Sales-{A9D815ED-4D7F-40C9-A99F-67FBB98B1D38}MENNA\SQLEXPRESS.CoffeeShop_DWH;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=MENNA\SQLEXPRESS;Initial Catalog=CoffeeShop_DWH;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Fact_Sales-{0E1695D6-1A75-4768-930E-5E4D6B2D2987}MENNA\SQLEXPRESS.CoffeeShop_DWH;Auto Translate=False;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -6029,7 +6030,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=MENNA\SQLEXPRESS;Initial Catalog=CoffeeShop_DWH;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Fact_Sales-{014B0BD3-2F53-4BB1-A890-0784CFB3C45F}MENNA\SQLEXPRESS.CoffeeShop_DWH 1;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=MENNA\SQLEXPRESS;Initial Catalog=CoffeeShop_DWH;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Fact_Sales-{80DBE024-31D5-4AB5-A9E9-942C1EFBDB7C}MENNA\SQLEXPRESS.CoffeeShop_DWH 1;Auto Translate=False;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -6177,7 +6178,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=MENNA\SQLEXPRESS;Initial Catalog=CoffeeShop_DWH;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Fact_Ingredients_Usage-{9F8AEC36-FD7A-4A89-BA34-8B43EB10BFE2}MENNA\SQLEXPRESS.CoffeeShop_DWH;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=MENNA\SQLEXPRESS;Initial Catalog=CoffeeShop_DWH;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Fact_Ingredients_Usage-{9B1760EE-CD15-4726-B519-BD5A60AEBB8C}MENNA\SQLEXPRESS.CoffeeShop_DWH;Auto Translate=False;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -6325,7 +6326,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=MENNA\SQLEXPRESS;Initial Catalog=CoffeeShop_STG;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Fact_Sales-{9326311F-1EDB-43BE-9AD9-79D49680A973}MENNA\SQLEXPRESS.CoffeeShop_STG;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=MENNA\SQLEXPRESS;Initial Catalog=CoffeeShop_STG;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Fact_Sales-{FDEBA775-06AC-4B11-B49D-7F7869BD60CC}MENNA\SQLEXPRESS.CoffeeShop_STG;Auto Translate=False;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -6473,7 +6474,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=MENNA\SQLEXPRESS;Initial Catalog=CoffeeShop_STG;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Fact_Sales-{8A0F0909-7482-43CB-B854-031A580A7CEA}MENNA\SQLEXPRESS.CoffeeShop_STG 1;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=MENNA\SQLEXPRESS;Initial Catalog=CoffeeShop_STG;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Fact_Sales-{03DFE4A6-5C65-4ECD-B09B-20D830DC1D10}MENNA\SQLEXPRESS.CoffeeShop_STG 1;Auto Translate=False;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -6603,10 +6604,10 @@
                 <SSIS:Property SSIS:Name="Name">new recipe and ing</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">7</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{81BF1F93-2604-4BD3-B1FA-337ACF75BCE1}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{D0B63260-F89A-4F82-B192-56C966D74D9A}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -7288,6 +7289,23 @@
                   </SSIS:Properties>
                 </SSIS:Parameter>
               </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="Fact_Customer_Visit.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{E321B1D1-E5A2-4F5F-9C3E-9F17F63EAC6A}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Package3</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">6</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{4669D274-58A2-4DBF-8F16-BB7827BA7AC2}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
             </SSIS:PackageMetaData>
           </SSIS:PackageInfo>
         </SSIS:DeploymentInfo>
