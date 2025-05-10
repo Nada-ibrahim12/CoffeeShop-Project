@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Fact_Sales"
   DTS:PackageType="5"
-  DTS:VersionBuild="110"
-  DTS:VersionGUID="{5E1AC042-52D6-40D5-8AD2-542183F256D8}">
+  DTS:VersionBuild="111"
+  DTS:VersionGUID="{4D3E79F6-2912-4C12-801D-1C8F0AEF25EA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1731,21 +1731,6 @@ where [refTable].[order_type_name] = ?</property>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Data Flow Task 1"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:DTSID="{50B818ED-675F-49CF-AB56-1A2BC676DB7E}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Data Flow Task 1"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1" />
-      </DTS:ObjectData>
-    </DTS:Executable>
   </DTS:Executables>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -1763,10 +1748,6 @@ where [refTable].[order_type_name] = ?</property>
           Size="150.4,41.6"
           Id="Package\Data Flow Task"
           TopLeft="202.166655921274,132.899999114076" />
-        <NodeLayout
-          Size="159.2,41.6"
-          Id="Package\Data Flow Task 1"
-          TopLeft="40.4999980876844,47.0999997107188" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1776,77 +1757,41 @@ where [refTable].[order_type_name] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="177.6,41.6"
-          Id="Package\Data Flow Task\Lookup for items_dim"
-          TopLeft="312.999983198941,25.4333331947193" />
-        <NodeLayout
-          Size="156,41.6"
-          Id="Package\Data Flow Task\Data Conversion"
-          TopLeft="632.166632427111,131.445745373537" />
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Data Flow Task\OLE DB Destination"
-          TopLeft="43.8333312388924,331.2999999096" />
-        <NodeLayout
-          Size="180,41.6"
-          Id="Package\Data Flow Task\Lookup for order_type"
-          TopLeft="43.8333328780201,125.527777349882" />
+          Size="127.2,41.6"
+          Id="Package\Data Flow Task\stg_orders"
+          TopLeft="48.8333309657044,24.4611111774047" />
         <NodeLayout
           Size="148,41.6"
           Id="Package\Data Flow Task\Lookup Date id"
           TopLeft="637.166632153924,218.979078098174" />
         <NodeLayout
-          Size="127.2,41.6"
-          Id="Package\Data Flow Task\stg_orders"
-          TopLeft="48.8333309657044,24.4611111774047" />
+          Size="177.6,41.6"
+          Id="Package\Data Flow Task\Lookup for items_dim"
+          TopLeft="312.999983198941,25.4333331947193" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Data Flow Task\OLE DB Destination"
+          TopLeft="43.8333312388924,331.2999999096" />
         <NodeLayout
           Size="179.2,41.6"
           Id="Package\Data Flow Task\sales amount Column"
           TopLeft="279.999984701475,219.066665449275" />
         <NodeLayout
+          Size="180,41.6"
+          Id="Package\Data Flow Task\Lookup for order_type"
+          TopLeft="43.8333328780201,125.527777349882" />
+        <NodeLayout
           Size="187.2,41.6"
           Id="Package\Data Flow Task\Lookup for customer_id"
           TopLeft="332.999985384444,126.927777548764" />
         <NodeLayout
+          Size="156,41.6"
+          Id="Package\Data Flow Task\Data Conversion"
+          TopLeft="632.166632427111,131.445745373537" />
+        <NodeLayout
           Size="126.4,41.6"
           Id="Package\Data Flow Task\Aggregate"
           TopLeft="59.6666637071305,223.033332037595" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup Match Output3]"
-          TopLeft="401.799983198941,67.0333331947193">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-267.966650320921,58.4944441551627"
-              Start="0,0"
-              End="-267.966650320921,50.9944441551627">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.2472220775813" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.2472220775813"
-                    Point2="0,29.2472220775813"
-                    Point3="-4,29.2472220775813" />
-                  <mssgle:LineSegment
-                    End="-263.966650320921,29.2472220775813" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-263.966650320921,29.2472220775813"
-                    Point2="-267.966650320921,29.2472220775813"
-                    Point3="-267.966650320921,33.2472220775813" />
-                  <mssgle:LineSegment
-                    End="-267.966650320921,50.9944441551627" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-182.174711879211,34.2472220775813,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Lookup Match Output2]"
           TopLeft="223.83333287802,147.027777449323">
@@ -1920,6 +1865,28 @@ where [refTable].[order_type_name] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="279.999984701475,241.849998743435">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-93.9333209943445,0"
+              Start="0,0"
+              End="-86.4333209943445,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-86.4333209943445,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Data Flow Task.Paths[Data Conversion Output]"
           TopLeft="710.666632290517,173.045745373537">
           <EdgeLayout.Curve>
@@ -1986,37 +1953,87 @@ where [refTable].[order_type_name] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Derived Column Output]"
-          TopLeft="279.999984701475,241.849998743435">
+          Id="Package\Data Flow Task.Paths[Lookup Match Output3]"
+          TopLeft="401.799983198941,67.0333331947193">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-93.9333209943445,0"
+              EndConnector="-267.966650320921,58.4944441551627"
               Start="0,0"
-              End="-86.4333209943445,0">
+              End="-267.966650320921,50.9944441551627">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-86.4333209943445,0" />
+                    End="0,25.2472220775813" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.2472220775813"
+                    Point2="0,29.2472220775813"
+                    Point3="-4,29.2472220775813" />
+                  <mssgle:LineSegment
+                    End="-263.966650320921,29.2472220775813" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-263.966650320921,29.2472220775813"
+                    Point2="-267.966650320921,29.2472220775813"
+                    Point3="-267.966650320921,33.2472220775813" />
+                  <mssgle:LineSegment
+                    End="-267.966650320921,50.9944441551627" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-182.174711879211,34.2472220775813,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\stg_orders">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Lookup Date id">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Date]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\Lookup for items_dim">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2026,7 +2043,7 @@ where [refTable].[order_type_name] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2052,7 +2069,7 @@ where [refTable].[order_type_name] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2062,46 +2079,10 @@ where [refTable].[order_type_name] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Lookup Date id">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Dim_Date]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\stg_orders">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -2111,7 +2092,7 @@ where [refTable].[order_type_name] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2121,7 +2102,7 @@ where [refTable].[order_type_name] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

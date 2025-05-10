@@ -1,5 +1,9 @@
 USE CoffeeShop_DWH;
 
+SELECT * FROM Fact_Recipe;
+SELECT * FROM Fact_Customer_Visits_Monthly;
+SELECT * FROM Fact_Sales;
+SELECT * FROM Fact_Staff_Cost;
 
 SELECT * FROM Fact_Sales
 WHERE cust_id = 11;
@@ -57,21 +61,6 @@ GROUP BY c.customer_id, c.cust_name
 ORDER BY Total_Spent DESC
 OFFSET 0 ROWS FETCH NEXT 5 ROWS ONLY;
 
--- Monthly Sales Growth (Percent Change)
-WITH MonthlySales AS (
-  SELECT d.Year, d.Month, 
-         SUM(fs.sales_amount) AS Total_Sales
-  FROM Fact_Sales fs
-  JOIN Dim_Date d ON fs.date_id = d.Date_ID
-  GROUP BY d.Year, d.Month
-)
-SELECT Year, Month, Total_Sales,
-       LAG(Total_Sales) OVER (ORDER BY Year, Month) AS Prev_Month_Sales,
-       ROUND(
-         (Total_Sales - LAG(Total_Sales) OVER (ORDER BY Year, Month)) * 100.0 /
-         NULLIF(LAG(Total_Sales) OVER (ORDER BY Year, Month), 0), 2
-       ) AS Sales_Growth_Percent
-FROM MonthlySales;
 
 
 ------------------------------------------
@@ -91,7 +80,7 @@ GROUP BY staff_id;
 SELECT AVG(sal_per_hour) AS Avg_Salary_Per_Hour FROM Fact_Staff_Cost;
 
 -- Staff with Highest Cost in a Single Month
-SELECT TOP 1 s.staff_id, s.staff_name, d.MonthName, d.Year, SUM(fsc.cost) AS Monthly_Cost
+SELECT TOP 1 s.staff_id, d.MonthName, d.Year, SUM(fsc.cost) AS Monthly_Cost
 FROM Fact_Staff_Cost fsc
 JOIN Staff_Dim s ON fsc.staff_id = s.staff_id
 JOIN Dim_Date d ON fsc.date_id = d.Date_ID
@@ -207,15 +196,6 @@ ORDER BY Loyalty_Score DESC;
 
 ----------------------------------------------------
 -------MULTIPLE TABLES
--- Total Profit by Customer (Sales + Recipe)
-SELECT c.customer_id, c.cust_name,
-       SUM(fs.sales_amount) AS Total_Sales,
-       SUM(fr.profit) AS Estimated_Recipe_Profit
-FROM Fact_Sales fs
-JOIN Dim_Customer c ON fs.cust_id = c.customer_id
-JOIN Fact_Recipe fr ON fs.order_id = fr.recipe_id -- Assuming mapping exists
-GROUP BY c.customer_id, c.cust_name;
-
 -- Profit Per Staff Hour (Sales / Worked Hours)
 SELECT fsc.staff_id, 
        ROUND(SUM(fs.sales_amount) / NULLIF(SUM(fsc.worked_hours), 0), 2) AS Sales_Per_Hour

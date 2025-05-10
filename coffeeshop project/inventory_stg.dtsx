@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package4"
   DTS:PackageType="5"
-  DTS:VersionBuild="23"
-  DTS:VersionGUID="{3260B5B6-2548-4760-8481-76B00C8BB1FE}">
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{A19CB612-093C-4865-A44B-3F518CAE9D27}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -559,13 +559,13 @@ WHERE  last_update &gt; '1/1/1950';</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\truncate items_stg"
+      DTS:refId="Package\truncate inventory_stg"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
       DTS:DTSID="{d58ac732-1ac1-467d-9dd8-d30c6971772b}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="truncate items_stg"
+      DTS:ObjectName="truncate inventory_stg"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
@@ -598,7 +598,7 @@ WHERE  last_update &gt; '1/1/1950';</property>
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
       DTS:DTSID="{66e887df-bdf0-4e69-9157-7069737d5f0f}"
-      DTS:From="Package\truncate items_stg"
+      DTS:From="Package\truncate inventory_stg"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\ExtractLastDate" />
@@ -634,14 +634,14 @@ WHERE  last_update &gt; '1/1/1950';</property>
         <NodeLayout
           Size="152,41.6"
           Id="Package\ExtractLastDate"
-          TopLeft="63.333334790336,132.466666371359" />
+          TopLeft="80.0000005463762,132.466666371359" />
         <NodeLayout
           Size="129.6,41.6"
           Id="Package\Src to STG"
-          TopLeft="70.833336019682,210.999999367198" />
+          TopLeft="87.5000017757221,211.866666027838" />
         <NodeLayout
-          Size="163.2,41.6"
-          Id="Package\truncate items_stg"
+          Size="180.8,41.6"
+          Id="Package\truncate inventory_stg"
           TopLeft="60,60" />
         <NodeLayout
           Size="162.4,41.6"
@@ -649,18 +649,18 @@ WHERE  last_update &gt; '1/1/1950';</property>
           TopLeft="75.0000008195641,308.399998481274" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="140.466667395168,101.6">
+          TopLeft="153.200000273188,101.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,30.8666663713587"
+              EndConnector="0,30.866666371359"
               Start="0,0"
-              End="0,23.3666663713587">
+              End="0,23.366666371359">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.3666663713587" />
+                    End="0,23.366666371359" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -671,18 +671,18 @@ WHERE  last_update &gt; '1/1/1950';</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="137.483335405009,174.066666371359">
+          TopLeft="154.150001161049,174.066666371359">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,36.9333329958393"
+              EndConnector="0,37.799999656479"
               Start="0,0"
-              End="0,29.4333329958393">
+              End="0,30.299999656479">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29.4333329958393" />
+                    End="0,30.299999656479" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -693,30 +693,18 @@ WHERE  last_update &gt; '1/1/1950';</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="135.633336019682,252.599999367198">
+          TopLeft="154.250001297643,253.466666027838">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="20.5666647998821,55.799999114076"
+              EndConnector="0,54.933332453436"
               Start="0,0"
-              End="20.5666647998821,48.299999114076">
+              End="0,47.433332453436">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.899999557038" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23.899999557038"
-                    Point2="0,27.899999557038"
-                    Point3="4,27.899999557038" />
-                  <mssgle:LineSegment
-                    End="16.5666647998821,27.899999557038" />
-                  <mssgle:CubicBezierSegment
-                    Point1="16.5666647998821,27.899999557038"
-                    Point2="20.5666647998821,27.899999557038"
-                    Point3="20.5666647998821,31.899999557038" />
-                  <mssgle:LineSegment
-                    End="20.5666647998821,48.299999114076" />
+                    End="0,47.433332453436" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

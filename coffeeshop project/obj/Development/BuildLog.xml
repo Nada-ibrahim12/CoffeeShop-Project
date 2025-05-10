@@ -2,78 +2,88 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>coffeeshop project</Name>
-    <LastWriteTime>2025-05-10T16:02:56.2680224Z</LastWriteTime>
+    <LastWriteTime>2025-05-10T21:27:49.0237707Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>orders_stg.dtsx</Name>
-      <LastWriteTime>2025-05-10T17:33:18.3493303Z</LastWriteTime>
+      <LastWriteTime>2025-05-10T21:32:50.9780598Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>items_stg.dtsx</Name>
-      <LastWriteTime>2025-05-10T14:38:55.1949182Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>recipe_stg.dtsx</Name>
-      <LastWriteTime>2025-05-10T14:38:55.5294389Z</LastWriteTime>
+      <LastWriteTime>2025-05-10T21:37:25.231196Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>inventory_stg.dtsx</Name>
-      <LastWriteTime>2025-05-10T14:38:55.1360821Z</LastWriteTime>
+      <LastWriteTime>2025-05-10T21:27:24.2087939Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>rota_stg.dtsx</Name>
-      <LastWriteTime>2025-05-10T14:38:55.5896354Z</LastWriteTime>
+      <LastWriteTime>2025-05-10T21:59:01.3193638Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>staff_stg.dtsx</Name>
-      <LastWriteTime>2025-05-10T14:38:55.7013164Z</LastWriteTime>
+      <LastWriteTime>2025-05-10T22:03:47.1388176Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>shift_stg.dtsx</Name>
-      <LastWriteTime>2025-05-10T14:38:55.6443565Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Fact_Item_Profit.dtsx</Name>
-      <LastWriteTime>2025-05-10T14:38:54.8020442Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Fact_Ingredients_Usage.dtsx</Name>
-      <LastWriteTime>2025-05-10T14:38:54.7338812Z</LastWriteTime>
+      <LastWriteTime>2025-05-10T22:00:48.5508035Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Fact_Sales.dtsx</Name>
-      <LastWriteTime>2025-05-10T17:17:03.8577795Z</LastWriteTime>
+      <LastWriteTime>2025-05-10T21:37:25.2006648Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>new recipe and ing.dtsx</Name>
-      <LastWriteTime>2025-05-10T16:02:56.1586013Z</LastWriteTime>
+      <LastWriteTime>2025-05-10T21:48:09.6907316Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>FACT_RECIPE.dtsx</Name>
-      <LastWriteTime>2025-05-10T14:38:54.8690684Z</LastWriteTime>
+      <LastWriteTime>2025-05-10T18:06:24.9225393Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Fact_Staff_Cost.dtsx</Name>
-      <LastWriteTime>2025-05-10T14:38:55.006633Z</LastWriteTime>
+      <LastWriteTime>2025-05-10T22:06:52.5867129Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Fact_Customer_Visit.dtsx</Name>
       <LastWriteTime>2025-05-10T17:39:12.3165375Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Fact_Ingredients_Usage(old).dtsx</Name>
+      <LastWriteTime>2025-05-10T18:06:25.0025598Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Fact_Item_Profit(old).dtsx</Name>
+      <LastWriteTime>2025-05-10T18:06:24.9627969Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>recipe_stg(old).dtsx</Name>
+      <LastWriteTime>2025-05-10T18:06:20.1161733Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>recipe_stg.dtsx</Name>
+      <LastWriteTime>2025-05-10T21:53:51.5783301Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>ing_stg.dtsx</Name>
+      <LastWriteTime>2025-05-10T21:56:27.0101916Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

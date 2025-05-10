@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="new recipe and ing"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{D0B63260-F89A-4F82-B192-56C966D74D9A}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{77C2064A-7676-4145-B65B-B07E63534A8C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1910,7 +1910,15 @@ GROUP BY recipe_id;</property>
     design-time-name="Package\Data Flow Task 1">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Data Flow Task 1\OLE DB Source 1"
+          TopLeft="665.999990075827,125.599999642372" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Data Flow Task 1\OLE DB Destination 1"
+          TopLeft="664.999990090728,235.599998003244" />
         <NodeLayout
           Size="152,41.6"
           Id="Package\Data Flow Task 1\OLE DB Source"
@@ -1950,17 +1958,11 @@ GROUP BY recipe_id;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="152,41.6"
-          Id="Package\Data Flow Task 1\OLE DB Source 1"
-          TopLeft="665.999990075827,125.599999642372" />
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Data Flow Task 1\OLE DB Destination 1"
-          TopLeft="664.999990090728,235.599998003244" />
         <EdgeLayout
           Id="Package\Data Flow Task 1.Paths[OLE DB Source Output1]"
           TopLeft="741.999990075827,167.199999642372">
@@ -1992,7 +1994,9 @@ GROUP BY recipe_id;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
