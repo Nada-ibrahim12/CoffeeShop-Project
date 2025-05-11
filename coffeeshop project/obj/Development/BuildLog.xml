@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>coffeeshop project</Name>
-    <LastWriteTime>2025-05-10T21:27:49.0237707Z</LastWriteTime>
+    <LastWriteTime>2025-05-11T02:00:15.6646978Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -38,12 +38,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Fact_Sales.dtsx</Name>
-      <LastWriteTime>2025-05-11T00:08:32.3341103Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>new recipe and ing.dtsx</Name>
-      <LastWriteTime>2025-05-10T21:48:09.6907316Z</LastWriteTime>
+      <LastWriteTime>2025-05-11T02:05:04.3417732Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -58,22 +53,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Fact_Customer_Visit.dtsx</Name>
-      <LastWriteTime>2025-05-10T17:39:12.3165375Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Fact_Ingredients_Usage(old).dtsx</Name>
-      <LastWriteTime>2025-05-10T18:06:25.0025598Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Fact_Item_Profit(old).dtsx</Name>
-      <LastWriteTime>2025-05-10T18:06:24.9627969Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>recipe_stg(old).dtsx</Name>
-      <LastWriteTime>2025-05-10T18:06:20.1161733Z</LastWriteTime>
+      <LastWriteTime>2025-05-11T00:26:00.7863918Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
