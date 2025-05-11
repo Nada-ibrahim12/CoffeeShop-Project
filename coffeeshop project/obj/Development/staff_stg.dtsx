@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package3"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{68D676F8-CF85-4A42-BEAF-8BE264B2053E}">
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{28A2B6BE-E3F1-479D-8BA6-891C31472D96}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1840,6 +1840,22 @@ WHERE  last_update &gt; '1/1/1950';</property>
                       cachedScale="2"
                       externalMetadataColumnId="Package\Src to STG\staff stg Destination.Inputs[OLE DB Destination Input].ExternalColumns[sal_per_hour]"
                       lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[sal_per_hour]" />
+                    <inputColumn
+                      refId="Package\Src to STG\staff stg Destination.Inputs[OLE DB Destination Input].Columns[first_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="first_name"
+                      externalMetadataColumnId="Package\Src to STG\staff stg Destination.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[first_name]" />
+                    <inputColumn
+                      refId="Package\Src to STG\staff stg Destination.Inputs[OLE DB Destination Input].Columns[last_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="last_name"
+                      externalMetadataColumnId="Package\Src to STG\staff stg Destination.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
+                      lineageId="Package\Src to STG\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_name]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2149,7 +2165,7 @@ WHERE  last_update &gt; '1/1/1950';</property>
         <NodeLayout
           Size="159.2,41.6"
           Id="Package\Data Flow Task\Conditional Split"
-          TopLeft="194.5,235.5" />
+          TopLeft="305.499998345971,226.50000013411" />
         <NodeLayout
           Size="169.6,41.6"
           Id="Package\Data Flow Task\Data Conversion 1"
@@ -2160,30 +2176,30 @@ WHERE  last_update &gt; '1/1/1950';</property>
           TopLeft="42.2319277108433,394.424242424242" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Update Existing Records]"
-          TopLeft="274,277.5">
+          TopLeft="385.099998345971,268.10000013411">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="171.5,38"
+              EndConnector="60.200001654029,47.3999998658896"
               Start="0,0"
-              End="171.5,30.5">
+              End="60.200001654029,39.8999998658896">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15" />
+                    End="0,19.6999999329448" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,15"
-                    Point2="0,19"
-                    Point3="4,19" />
+                    Point1="0,19.6999999329448"
+                    Point2="0,23.6999999329448"
+                    Point3="4,23.6999999329448" />
                   <mssgle:LineSegment
-                    End="167.5,19" />
+                    End="56.200001654029,23.6999999329448" />
                   <mssgle:CubicBezierSegment
-                    Point1="167.5,19"
-                    Point2="171.5,19"
-                    Point3="171.5,23" />
+                    Point1="56.200001654029,23.6999999329448"
+                    Point2="60.200001654029,23.6999999329448"
+                    Point3="60.200001654029,27.6999999329448" />
                   <mssgle:LineSegment
-                    End="171.5,30.5" />
+                    End="60.200001654029,39.8999998658896" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2274,25 +2290,37 @@ WHERE  last_update &gt; '1/1/1950';</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Lookup Match Output]"
-          TopLeft="274,193.5">
+          TopLeft="291.966666666667,193.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,42"
+              EndConnector="93.1333316793043,33.4000001341104"
               Start="0,0"
-              End="0,34.5">
+              End="93.1333316793043,25.9000001341104">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.5" />
+                    End="0,9.63452060269165" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.63452060269165"
+                    Point2="0,13.6345206026917"
+                    Point3="4,13.6345206026917" />
+                  <mssgle:LineSegment
+                    End="89.1333316793043,13.6345206026917" />
+                  <mssgle:CubicBezierSegment
+                    Point1="89.1333316793043,13.6345206026917"
+                    Point2="93.1333316793043,13.6345206026917"
+                    Point3="93.1333316793043,17.6345206026917" />
+                  <mssgle:LineSegment
+                    End="93.1333316793043,25.9000001341104" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,11.4453125,96.3827734375,11.609375"
+              BoundingBox="-1.62472087909784,18.6345206026917,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2433,13 +2461,13 @@ WHERE  last_update &gt; '1/1/1950';</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="152,41.6"
-          Id="Package\Src to STG\OLE DB Source"
-          TopLeft="50.4999975413082,65.2999995841583" />
-        <NodeLayout
           Size="169.6,41.6"
           Id="Package\Src to STG\staff stg Destination"
           TopLeft="443.833311022985,178.499999005596" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Src to STG\OLE DB Source"
+          TopLeft="50.4999975413082,65.2999995841583" />
         <NodeLayout
           Size="152.8,41.6"
           Id="Package\Src to STG\Derived Column"
@@ -2516,14 +2544,6 @@ WHERE  last_update &gt; '1/1/1950';</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Src to STG\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Src to STG\staff stg Destination">
     <Properties>
       <Property>
@@ -2533,6 +2553,14 @@ WHERE  last_update &gt; '1/1/1950';</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Src to STG\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
