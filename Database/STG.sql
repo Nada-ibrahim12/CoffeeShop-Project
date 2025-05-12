@@ -30,7 +30,6 @@ CREATE TABLE Ingredients_STG (
     ing_meas VARCHAR(10),
     ing_price DECIMAL(10, 2)
 );
-
 CREATE TABLE Recipe_STG (
 	recipe_id varchar(20) PRIMARY KEY,
 	ingredients NVARCHAR(MAX),

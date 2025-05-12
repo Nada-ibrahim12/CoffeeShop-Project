@@ -4,6 +4,7 @@ SELECT * FROM Fact_Recipe;
 SELECT * FROM Fact_Customer_Visits_Monthly;
 SELECT * FROM Fact_Sales;
 SELECT * FROM Fact_Staff_Cost;
+SELECT * FROM Recipe_Dim;
 
 SELECT * FROM Fact_Sales
 WHERE cust_id = 11;
@@ -186,6 +187,7 @@ FROM Fact_Customer_Visits_Monthly
 GROUP BY year
 ORDER BY year;
 
+SELECT SUM(visit_count) from Fact_Customer_Visits_Monthly;
 -- Loyalty Score: Total Visits * Avg Spend
 SELECT customer_id, cust_name,
        SUM(visit_count) * AVG(total_spent / NULLIF(visit_count, 0)) AS Loyalty_Score
