@@ -13,7 +13,8 @@ The project uses **SQL Server** for data storage, **SSIS** for ETL workflows, an
 ---
 
 ## Source System
-[Used Dataset]([https://github.com/Nada-ibrahim12/CoffeeShop-Project/blob/main/.pdf])
+[Used Dataset](https://www.kaggle.com/datasets/viramatv/coffee-shop-data)
+
 
 The source operational data comes from normalized tables covering:
 
